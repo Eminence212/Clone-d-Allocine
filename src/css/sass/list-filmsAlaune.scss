@@ -1,0 +1,15 @@
+.films-alaune{
+    height: 100vh;
+    background-color: $color-black-deux;
+    .container{
+        height: 100% !important;
+        width: 80% !important;
+        margin: 0 auto !important;
+    }
+    .list-filmsAlaune{
+        width: 90%;
+        padding: 0.5% 0.5%;
+        margin: 0 auto;
+        // background-color: azure;
+    }
+}
