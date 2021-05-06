@@ -53,14 +53,14 @@ function SectionFimsPopulaires() {
       }
     ]
     return (
-        <section className= "films-populaires" >
-            <diw className="container-fluid">
-                <div className="row">
-                    <div className="col-12 section-title">
-                        <h2>Films populaire</h2>
-                    </div>
-                </div>
-                <div className= "row justify-content-center list-filmspopulare" >
+        <section className="films-populaires" >
+            <div className="section-title">
+                <h2>Films populaire</h2>
+            </div>
+            <diw className="container">
+                   
+                
+                <div className= "row justify-content-center" >
                     {
                         moviesPopulars.map(movie => (
                             < CardFilm data = {movie} key = {movie.id} />

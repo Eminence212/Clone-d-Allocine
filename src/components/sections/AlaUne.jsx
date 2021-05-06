@@ -54,21 +54,20 @@ const moviesPopulars = [
 function AlaUne() {
     return (
       
-        <section section className= "films-alaune" >
-                <diw className="container">
-                    <div className="row">
-                        <div className="col-12 section-title">
-                            <h2>A la une</h2>
-                        </div>
-                    </div>
-                    <div className="row justify-content-center list-filmsAlaune" >
-                        {
-                            moviesPopulars.map(movie => (
-                                <CardFilm data={movie} key={movie.id} />
-                            ))
-                        }
-                    </div>
-                </diw>
+        <section section className="films-alaune" >
+            <div className="section-title">
+                <h2>A la une</h2>
+            </div>
+            <diw className="container">
+                    
+                <div className="row justify-content-center" >
+                    {
+                        moviesPopulars.map(movie => (
+                            <CardFilm data={movie} key={movie.id} />
+                        ))
+                    }
+                </div>
+            </diw>
             </section>
     )
 }
