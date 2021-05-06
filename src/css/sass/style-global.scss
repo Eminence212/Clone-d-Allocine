@@ -15,10 +15,6 @@ a {
   text-decoration: none;
 }
 
-a:hover {
-  color: $color-red;
-}
-
 h1,
 h2,
 h3,
@@ -67,7 +63,7 @@ section {
     border-radius: 5px;
     transition: 0.6s ease-in-out;
     &:hover {
-     transform: scale(0.98);
+      transform: scale(0.98);
     }
   }
   .card-body {
@@ -109,12 +105,19 @@ section {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-      svg{
+    div {
+      border : none;
+      transition: 0.3s ease-in-out;
+      svg {
+        color: $color-wite;
         font-size: 2rem;
-           &:hover{
-        color: $color-red !important;
       }
+      &:hover {
+        border-radius: 100%;
+        border: 2px solid $color-wite;
+        padding: 5px;
       }
+    }
   }
   &:hover {
     .film-info {

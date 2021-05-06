@@ -18,10 +18,6 @@ a {
   text-decoration: none;
 }
 
-a:hover {
-  color: red;
-}
-
 h1,
 h2,
 h3,
@@ -113,11 +109,18 @@ section {
   justify-content: space-around;
   align-items: center;
 }
-.card .film-info svg {
+.card .film-info div {
+  border: none;
+  transition: 0.3s ease-in-out;
+}
+.card .film-info div svg {
+  color: white;
   font-size: 2rem;
 }
-.card .film-info svg:hover {
-  color: red !important;
+.card .film-info div:hover {
+  border-radius: 100%;
+  border: 2px solid white;
+  padding: 5px;
 }
 .card:hover .film-info {
   opacity: 1;

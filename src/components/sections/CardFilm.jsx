@@ -1,5 +1,6 @@
 import React from 'react'
-import { MdPlayArrow} from 'react-icons/md'
+import { MdPlayArrow, MdAdd } from 'react-icons/md'
+import { FaInfo} from 'react-icons/fa'
 function CardFilm({ data }) {
     console.log(data);
     return (
@@ -15,9 +16,9 @@ function CardFilm({ data }) {
                     </p>
                 </div>
                 <div className="film-info">
-                    <a href="/"><MdPlayArrow /></a>
-                    <a href="/"><MdPlayArrow /></a>
-                    <a href="/"><MdPlayArrow /></a>
+                    <div><a href="/"><MdPlayArrow /></a></div>
+                    <div><a href="/"><MdAdd /></a></div>
+                    <div><a href="/"><FaInfo /></a></div>
                 </div>
 
             </div>
