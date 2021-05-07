@@ -9,13 +9,21 @@ import Main from './components/main';
 import Footer from './components/sections/Footer';
 import './css/styles.css'
 import BackToTop from './components/sections/BackToTop';
+import {Switch, Route } from 'react-router-dom'
+import MoviesSearch from './components/MoviesSearch';
+import MovieDetail from './components/MovieDetail';
 
 const App = () =>(
   <>
-    <Header />
-    <Main />
-    <Footer />
-    <BackToTop/>
+      <Header />
+      <Switch>
+        <Route exact path="/" render={(props) => <Main {...props} />} />
+        <Route path="/movies-search" render={(props) => <MoviesSearch {...props} />} />
+        <Route path="/:query?" render={(props) => <MovieDetail {...props} />} />
+        <Route path="/movies-search/:query?" render={(props) => <MovieDetail {...props} />} />
+      </Switch>
+      <Footer />
+      <BackToTop />
   </>
 )
 

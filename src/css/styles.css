@@ -181,26 +181,17 @@ section, footer {
 }
 .entete span {
   width: 35% !important;
+  text-align: center;
 }
 .entete span svg {
   position: relative;
   font-size: 2rem;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
-.entete span input {
-  border-radius: 33px !important;
-  height: 35px !important;
-  width: 90% !important;
-  background-color: transparent !important;
-  transition: all 0.3s;
-}
-.entete span input:focus {
-  background-color: transparent !important;
-  color: white !important;
-  box-shadow: none !important;
-}
-.entete span input::placeholder {
-  color: white !important;
+.entete span svg:hover {
+  transform: rotateZ(90deg);
+  transition: all 0.3s ease-in;
 }
 .entete .navbar li a {
   font-weight: bold;

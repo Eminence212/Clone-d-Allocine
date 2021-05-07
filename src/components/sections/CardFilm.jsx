@@ -1,6 +1,7 @@
 import React from 'react'
 import { MdPlayArrow, MdAdd } from 'react-icons/md'
-import { FaInfo} from 'react-icons/fa'
+import { FaInfo } from 'react-icons/fa'
+import { NavLink } from 'react-router-dom'
 function CardFilm({ data }) {
     return (
         <div className="col-6 col-md-4 col-lg-2 mt-1 w-responsive">
@@ -17,7 +18,7 @@ function CardFilm({ data }) {
                 <div className="film-info">
                     <div><a href="/"><MdPlayArrow /></a></div>
                     <div><a href="/"><MdAdd /></a></div>
-                    <div><a href="/"><FaInfo /></a></div>
+                    <div><NavLink to="/movie"><FaInfo /></NavLink></div>
                 </div>
 
             </div>

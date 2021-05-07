@@ -1,17 +1,12 @@
 import React from 'react'
 import {
     MdSearch
-   } from 'react-icons/md'
+} from 'react-icons/md'
+import { NavLink } from 'react-router-dom'
 function SearchBox({showSearchBox,handleShowSearchBox}) {
     return (
-     <span className = "input-group rounded d-flex align-items-center justify-content-center" >
-            {
-                showSearchBox ?<><input type="search" name="searchBox" id="searchBox" className = "form-control rounded " 
-                placeholder="Recherche par titre du film" aria-label="Search"
-                aria-describedby="search-addon"
-            /> <MdSearch onClick = {() =>handleShowSearchBox()} /></>:
-              <MdSearch onClick = {() =>handleShowSearchBox()} />
-              }
+        <span>
+            <NavLink to="/movies-search" ><MdSearch /></NavLink>
         </span>
       
     )

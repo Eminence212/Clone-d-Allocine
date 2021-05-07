@@ -9,7 +9,6 @@ function BackToTop() {
         <span href="/" className="back-to-top d-flex align-items-center justify-content-center">
             <MdKeyboardArrowUp/>
         </span>
-
     )
 }
 
