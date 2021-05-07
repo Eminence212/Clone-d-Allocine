@@ -72,4 +72,5 @@ function SectionFimsPopulaires() {
         </section>
     )
 }
+
 export default SectionFimsPopulaires

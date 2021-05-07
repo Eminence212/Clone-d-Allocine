@@ -20,11 +20,9 @@ const App = () =>(
         <Route exact path="/" render={(props) => <Main {...props} />} />
         <Route path="/movies-search" render={(props) => <MoviesSearch {...props} />} />
         <Route path="/:query?" render={(props) => <MovieDetail {...props} />} />
-        <Route path="/movies-search/:query?" render={(props) => <MovieDetail {...props} />} />
       </Switch>
       <Footer />
       <BackToTop />
   </>
 )
-
 export default App;

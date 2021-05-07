@@ -1,0 +1,23 @@
+.search-movies {
+  background: $color-black-un;
+  padding-top: 75px;
+  height: 100vh;
+  svg {
+    color: $color-wite;
+    font-size: 1.5rem;
+  }
+
+  .btn-search {
+    border-radius:0 8px 8px 0;
+    height: 40px;
+    width: 60px;
+    background: $color-red;
+    cursor: pointer;
+  }
+  .search-input{
+      outline: none;
+      box-shadow: none;
+      height: 40px;
+      border-radius:8px 0 0 8px;
+  }
+}
