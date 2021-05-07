@@ -70,7 +70,7 @@ function Footer() {
             <div className="container-fluid footer-bottom clearfix">
                 <div className="copyright">
                     © <strong><span>2021 Eminence Mulema</span></strong>. Tous droits réservés</div>
-                <div className="credits">
+                <div className="concepteur">
                     Conçu par <a href="/index.html">Eminence Mulema</a>
                 </div>
             </div>
