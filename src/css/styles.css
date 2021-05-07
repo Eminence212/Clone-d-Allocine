@@ -156,11 +156,11 @@ section, footer {
   transition: all 0.5s;
   z-index: 997;
   padding: 10px 0;
-  background: rgba(32, 32, 32, 0.9);
+  background: rgba(32, 32, 32, 0.5);
 }
 .entete.header-scrolled,
 .entete .header-inner-pages {
-  background: rgba(32, 32, 32, 0.9);
+  background: rgba(32, 32, 32, 0.5);
 }
 .entete .logo {
   font-size: 1.5em;
@@ -511,8 +511,7 @@ section, footer {
 }
 
 .footer-bottom {
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding: 22px 20px;
   color: white;
   background-color: #272829;
 }
@@ -521,18 +520,17 @@ section, footer {
   float: left;
 }
 
-.credits {
+.concepteur {
   float: right;
   font-size: 13px;
 }
-.credits a {
+.concepteur a {
   transition: 0.3s;
 }
 
 @media (max-width: 768px) {
   .footer-bottom {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 20px 0px;
   }
 
   .copyright {
@@ -540,11 +538,42 @@ section, footer {
     float: none;
   }
 
-  .credits {
+  .concepteur {
     text-align: center;
     float: none;
     padding-top: 4px;
   }
+}
+/*--------------------------------------------------------------
+  # Back to top button
+  --------------------------------------------------------------*/
+.back-to-top {
+  position: fixed;
+  visibility: visible;
+  opacity: 1;
+  right: 15px;
+  bottom: 45px;
+  z-index: 999;
+  background: red;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.back-to-top svg {
+  font-size: 1.8rem;
+  color: white;
+  line-height: 0;
+}
+.back-to-top:hover {
+  background: red;
+  color: white;
+  transform: scale(1.2);
+}
+.back-to-top.active {
+  visibility: visible;
+  opacity: 1;
 }
 
 /*# sourceMappingURL=styles.css.map */

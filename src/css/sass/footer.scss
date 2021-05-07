@@ -72,10 +72,9 @@
   
 }
   .footer-bottom {
-		padding-top: 30px;
-		padding-bottom: 30px;
+		padding: 22px 20px;
 		color: $color-wite;
-        background-color: $color-black-deux;
+    background-color: $color-black-deux;
 	}
 	.copyright {
 		float: left;
@@ -90,8 +89,7 @@
     @media (max-width: 768px) {
 
 		.footer-bottom {
-			padding-top: 20px;
-			padding-bottom: 20px;
+			padding-top: 20px 0px;
 		}
 		.copyright {
 			text-align: center;

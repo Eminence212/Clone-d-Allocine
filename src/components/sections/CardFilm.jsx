@@ -2,7 +2,6 @@ import React from 'react'
 import { MdPlayArrow, MdAdd } from 'react-icons/md'
 import { FaInfo} from 'react-icons/fa'
 function CardFilm({ data }) {
-    console.log(data);
     return (
         <div className="col-6 col-md-4 col-lg-2 mt-1 w-responsive">
             <div className="card">
@@ -26,5 +25,4 @@ function CardFilm({ data }) {
 
     )
 }
-
 export default CardFilm

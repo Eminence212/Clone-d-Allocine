@@ -8,15 +8,15 @@ import 'bootstrap/dist/js/bootstrap.min.js'
 import Main from './components/main';
 import Footer from './components/sections/Footer';
 import './css/styles.css'
+import BackToTop from './components/sections/BackToTop';
 
-const App = () =>
-(
+const App = () =>(
   <>
     <Header />
     <Main />
     <Footer />
+    <BackToTop/>
   </>
-
 )
 
 export default App;

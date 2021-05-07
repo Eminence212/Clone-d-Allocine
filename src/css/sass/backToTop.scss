@@ -1,0 +1,31 @@
+/*--------------------------------------------------------------
+  # Back to top button
+  --------------------------------------------------------------*/
+.back-to-top {
+  position: fixed;
+  visibility: visible;
+  opacity: 1;
+  right: 15px;
+  bottom: 45px;
+  z-index: 999;
+  background: $color-red;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  svg {
+    font-size: 1.8rem;
+    color: $color-wite;
+    line-height: 0;
+  }
+  &:hover {
+    background: $color-red;
+    color: $color-wite;
+    transform: scale(1.2);
+  }
+  &.active {
+    visibility: visible;
+    opacity: 1;
+  }
+}
