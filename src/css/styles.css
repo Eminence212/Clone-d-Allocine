@@ -15,7 +15,10 @@ body {
 
 a {
   color: white;
+}
+a:hover {
   text-decoration: none;
+  color: red;
 }
 
 h1,
@@ -27,7 +30,7 @@ h6 {
   font-family: "Montserrat", sans-serif;
 }
 
-section {
+section, footer {
   padding: 60px 0;
   overflow: hidden;
 }
@@ -441,6 +444,107 @@ section {
 
 .films-alaune {
   background-color: #272829;
+}
+
+.footer-section {
+  background: rgba(32, 32, 32, 0.9);
+}
+.footer-section .logo {
+  font-size: 2em;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  font-family: "Orbitron", cursive;
+}
+.footer-section .logo a {
+  color: white;
+  text-decoration: none;
+}
+.footer-section .logo span {
+  color: red;
+}
+.footer-section address {
+  padding-top: 15px;
+  color: white;
+  opacity: 0.4;
+}
+.footer-section .reseauSocial ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  letter-spacing: 5px;
+}
+.footer-section .reseauSocial ul li {
+  margin-right: 15px;
+}
+.footer-section .reseauSocial ul li a svg {
+  font-size: 1.5rem;
+  color: white;
+}
+.footer-section .reseauSocial ul li a svg:hover {
+  color: red;
+}
+.footer-section .affichage {
+  font-size: 1rem;
+  padding-top: 15px;
+  left: 0;
+  line-height: 1;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: left;
+  color: white;
+}
+.footer-section ul {
+  list-style: none;
+  line-height: 2;
+}
+.footer-section ul li a {
+  text-decoration: none;
+}
+.footer-section ul li a :hover {
+  color: red;
+}
+
+.footer-bottom {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  color: white;
+  background-color: #272829;
+}
+
+.copyright {
+  float: left;
+}
+
+.credits {
+  float: right;
+  font-size: 13px;
+}
+.credits a {
+  transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+  .footer-bottom {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .copyright {
+    text-align: center;
+    float: none;
+  }
+
+  .credits {
+    text-align: center;
+    float: none;
+    padding-top: 4px;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

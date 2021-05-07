@@ -9,10 +9,7 @@ function Main() {
               <Accueil />
               <SectionFimsPopulaires />
               <AlaUne/>
-        </div>
-      
-        
+        </div>        
     )
 }
-
 export default Main

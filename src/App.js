@@ -5,19 +5,18 @@ import 'animate.css/animate.min.css'
 import 'jquery/dist/jquery.slim.min.js'
 import 'popper.js/dist/popper.min.js'
 import 'bootstrap/dist/js/bootstrap.min.js'
-import './css/styles.css'
 import Main from './components/main';
+import Footer from './components/sections/Footer';
+import './css/styles.css'
 
-
-
-
-const App = ()=>
+const App = () =>
 (
-     <>
-      <Header/>
-      <Main/>
-     </>
-     
-  )
+  <>
+    <Header />
+    <Main />
+    <Footer />
+  </>
+
+)
 
 export default App;
