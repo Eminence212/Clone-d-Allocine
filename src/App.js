@@ -22,7 +22,7 @@ const App = () =>(
         <Route path="/:query?" render={(props) => <MovieDetail {...props} />} />
       </Switch>
       <Footer />
-      <BackToTop />
+    <BackToTop/>
   </>
 )
 export default App;

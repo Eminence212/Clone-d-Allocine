@@ -3,35 +3,7 @@ import hero1 from '../images/hero1.jpg'
 import hero2 from '../images/hero2.jpg'
 import hero3 from '../images/hero3.jpg'
 import { MdPlayArrow, MdAdd } from 'react-icons/md'
-const initialData = [
-    {
-        id: 1,
-        image: hero1,
-        titre: "Iron door",
-        annee: "2021",
-        age: "+18",
-        duree: "2h6m",
-        description:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates delectus ex aspernatur suscipit illo! Labore animi veritatis sapiente reprehenderit iusto dicta, odit nihil necessitatibus atque aliquid!"
-    },
-    {
-        id: 2,
-        image: hero2,
-        titre: "The earth",
-        annee: "2021",
-        age: "+18",
-        duree: "2h6m",
-        description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates delectus ex aspernatur suscipit illo! Labore animi veritatis sapiente reprehenderit iusto dicta, odit nihil necessitatibus atque aliquid!"
-    },
-    {
-        id: 3,
-        image: hero3,
-        titre: "city dreams",
-        annee: "2021",
-        age: "+18",
-        duree: "2h6m",
-        description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates delectus ex aspernatur suscipit illo! Labore animi veritatis sapiente reprehenderit iusto dicta, odit nihil necessitatibus atque aliquid!"
-    }
-]
+
 function Carousel() {
     return (
         <div className="carousel-inner">

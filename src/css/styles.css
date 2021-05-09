@@ -558,10 +558,6 @@ section, footer {
   color: white;
   transform: scale(1.2);
 }
-.back-to-top.active {
-  visibility: visible;
-  opacity: 1;
-}
 
 .search-movies {
   background: rgba(32, 32, 32, 0.9);
