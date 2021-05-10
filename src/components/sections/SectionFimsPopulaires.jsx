@@ -55,11 +55,9 @@ function SectionFimsPopulaires() {
     return (
         <section className="films-populaires" >
             <div className="section-title">
-                <h2>Films populaire</h2>
+                <h2>Films populaires</h2>
             </div>
             <diw className="container">
-                   
-                
                 <div className= "row justify-content-center" >
                     {
                         moviesPopulars.map(movie => (
@@ -67,10 +65,8 @@ function SectionFimsPopulaires() {
                         ))
                     }
                 </div>
-                 
             </diw>
         </section>
     )
 }
-
 export default SectionFimsPopulaires
