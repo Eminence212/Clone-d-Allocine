@@ -22,8 +22,8 @@ function CardFilm({ data, poster_path, genresMovies}) {
                     <h5 className="card-title fw-bold">{data.title}</h5>
                     <p className="card-text">
                         <span >{data.release_date !== undefined ? data.release_date.slice(0, 4) : null}</span>
-                        {data.adult ? <span> +18 </span> :null}
-                        <span>Action</span>
+                        <span>{(data.vote_average * 10) + " %"}</span>
+                        <span>{data.popularity}</span>
                     </p>
                 </div>
                 <div className="film-info">

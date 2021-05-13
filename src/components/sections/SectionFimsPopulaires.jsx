@@ -1,5 +1,6 @@
 import React ,{useState,useEffect} from 'react'
 import CardFilm from './CardFilm'
+import ButtonNavigation from '../ButtonNavigation'
 function SectionFimsPopulaires() {
     const api_key = "4649c10d4ba3c182bf2c9432f332bb4d"
     const poster_path = "https://image.tmdb.org/t/p/w500/"
@@ -40,18 +41,21 @@ function SectionFimsPopulaires() {
         }
     }, [])
 
-    
+    console.log(populrsMovies)
    
 
-  const  nextPage = (num) => {
-      if (num < total_pages) {
+    const nextPage = (event) => {
+        event.preventDefault()
+        if (numPage < total_pages) {
           setNumPage(numPage+1)
         }
   }
-    const previousPage = (num) => {
-        if (num > 0 && num <= total_pages) {
+    const previousPage = (event) => {
+        event.preventDefault()
+        if (numPage > 1 && numPage <= total_pages) {
             setNumPage(numPage -1)
         }
+        console.log("previous page")
     }
     return (
         <section className="films-populaires" >
@@ -59,6 +63,9 @@ function SectionFimsPopulaires() {
                 <h2>Films populaires</h2>
             </div>: null} 
             <diw className="container">
+                {
+                    populrsMovies.results !== undefined ? <ButtonNavigation numPage={numPage} nextPage={nextPage} previousPage={previousPage} total_pages={total_pages} /> : null
+                }
                 <div className= "row justify-content-center" >
                 {
                         populrsMovies.results !== undefined ?
@@ -68,15 +75,11 @@ function SectionFimsPopulaires() {
                     )) : null
                 }
                 </div>
+                {
+                    populrsMovies.results !== undefined ? <ButtonNavigation numPage={numPage} nextPage={nextPage} previousPage={previousPage} total_pages={total_pages} />:null
+               }
             </diw>
-            <div className="row justify-content-center bouton-navigation">
-                <div className="col">
-                    <button>Precedent</button>
-                </div>
-                <div className="col">
-                    <button>suivant</button>
-                </div>
-            </div>
+          
         </section>
     )
 }
