@@ -1,71 +1,82 @@
-import React from 'react'
+import React ,{useState,useEffect} from 'react'
 import CardFilm from './CardFilm'
-import image1 from '../images/populaire/01.jpg'
-import image2 from '../images/populaire/01 (1).jpg'
-import image3 from '../images/populaire/01 (2).jpg'
-import image4 from '../images/populaire/01 (3).jpg'
-import image5 from '../images/populaire/01 (5).jpg'
 function SectionFimsPopulaires() {
-  const  moviesPopulars = [
-      {
-          id: 1,
-          image: image1,
-          titre: "The love",
-          annee: "2021",
-          age: "+18",
-          type : "Action"
-      },
-      {
-          id: 2,
-          image: image2,
-          titre: "The love",
-          annee: "2021",
-          age: "+18",
-          type: "Action"
+    const api_key = "4649c10d4ba3c182bf2c9432f332bb4d"
+    const poster_path = "https://image.tmdb.org/t/p/w500/"
+    const [numPage, setNumPage] = useState(1)
+    const [total_pages,setTotal_pages] = useState(1)
+    const [populrsMovies, setPopularsMovies] = useState({})
+    const [genresMovies, setGeresMovies] = useState([])
+    const requete_popularsMovies = `https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&language=fr-FR&page=${numPage}`
+    const requete_genres = `https://api.themoviedb.org/3/genre/movie/list?api_key=${api_key}&language=fr-FR`
+  //Fetching popularsMovies
+    useEffect(() => {
+        try {
+            fetch(requete_popularsMovies)
+                .then(function (res) {
+                    res.json()
+                .then(function (data) {
+                    setPopularsMovies(data)
+                    setTotal_pages(data.total_pages)
+                })
+                })
+        } catch (error) {
+            console.log("Err :",error);
+        }
+    }, [numPage,requete_popularsMovies])
 
-      },
-      {
-          id: 3,
-          image: image3,
-          titre: "The love",
-          annee: "2021",
-          age: "+18",
-          type: "Action"
+    //Fetchinng genres movies
 
-      },
-      {
-          id: 4,
-          image: image4,
-          titre: "The love",
-          annee: "2021",
-          age: "+18",
-          type: "Action"
+    useEffect(() => {
+        try {
+            fetch(requete_genres)
+                .then(function (res) {
+                    res.json()
+                        .then(function (data) {
+                            setGeresMovies(data.genres)
+                        })
+                })
+        } catch (error) {
+        }
+    }, [])
 
-      },
-      {
-          id: 5,
-          image: image5,
-          titre: "The love",
-          annee: "2021",
-          age: "+18",
-          type: "Action"
+    
+   
 
-      }
-    ]
+  const  nextPage = (num) => {
+      if (num < total_pages) {
+          setNumPage(numPage+1)
+        }
+  }
+    const previousPage = (num) => {
+        if (num > 0 && num <= total_pages) {
+            setNumPage(numPage -1)
+        }
+    }
     return (
         <section className="films-populaires" >
-            <div className="section-title">
+            {   populrsMovies.results !== undefined ? <div className="section-title">
                 <h2>Films populaires</h2>
-            </div>
+            </div>: null} 
             <diw className="container">
                 <div className= "row justify-content-center" >
-                    {
-                        moviesPopulars.map(movie => (
-                            < CardFilm data = {movie} key = {movie.id} />
-                        ))
-                    }
+                {
+                        populrsMovies.results !== undefined ?
+                            
+                    populrsMovies.results.map(movie => (
+                        < CardFilm data={movie} poster_path={poster_path} key={movie.id} genresMovies ={genresMovies} />
+                    )) : null
+                }
                 </div>
             </diw>
+            <div className="row justify-content-center bouton-navigation">
+                <div className="col">
+                    <button>Precedent</button>
+                </div>
+                <div className="col">
+                    <button>suivant</button>
+                </div>
+            </div>
         </section>
     )
 }

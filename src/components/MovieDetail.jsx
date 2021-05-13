@@ -14,7 +14,6 @@ function MovieDetail() {
                             <div className="row  text-white p-5 justify-content-center">
                             <div className="col-11 col-md-6 col-lg-4">
                                 <img src={bg1} alt="..." className="img-fluid rounded shadow" />
-                                
                             </div>
                              <div className="col-11 col-md-6 col-lg-8 justify-content-center">
                                 <h1>Mortal Kombat (2021)</h1>

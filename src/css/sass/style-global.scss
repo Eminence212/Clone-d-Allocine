@@ -58,6 +58,7 @@ section, footer {
   border: none;
   background-color: transparent;
   position: relative;
+  margin: 10px;
   img {
     object-fit: cover;
     cursor: pointer;
@@ -73,6 +74,7 @@ section, footer {
     font-size: 1rem;
     p {
       padding: 0;
+      margin-bottom: 10px;
       span {
         height: 25px;
         width: 50px;
@@ -88,7 +90,7 @@ section, footer {
     }
     .card-title {
       margin-top: 5px;
-      font-size: 1rem;
+      font-size: 0.8rem;
       text-transform: uppercase;
     }
   }
