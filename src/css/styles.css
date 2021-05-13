@@ -38,7 +38,7 @@ footer {
 
 .section-title {
   text-align: left;
-  padding-bottom: 2px;
+  padding-bottom: 5px;
   margin-left: 7%;
 }
 .section-title h2 {
@@ -58,6 +58,11 @@ footer {
   background: red;
   bottom: 0;
   left: 0;
+}
+.section-title h2 span {
+  text-transform: capitalize;
+  font-size: 0.9rem;
+  font-weight: normal;
 }
 
 .card {
@@ -85,7 +90,7 @@ footer {
 }
 .card .card-body p {
   padding: 0;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 .card .card-body p span {
   height: 25px;
@@ -156,7 +161,7 @@ section .bouton-navigation span {
   color: white;
   width: 150px;
   margin: 15px;
-  height: 2rem;
+  height: 2.5rem;
   background-color: transparent;
   outline: none;
   cursor: pointer;

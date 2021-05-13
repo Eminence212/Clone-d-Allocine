@@ -6,9 +6,10 @@ import SectionFimsPopulaires from './sections/SectionFimsPopulaires'
 function Main() {
     return (
         <div className="main">
-              <Accueil/>
-              <SectionFimsPopulaires />
-              <AlaUne/>
+            <Accueil />
+            <AlaUne />
+            <SectionFimsPopulaires />
+            
         </div>        
     )
 }

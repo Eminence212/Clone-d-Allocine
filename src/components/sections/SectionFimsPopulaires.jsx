@@ -41,7 +41,6 @@ function SectionFimsPopulaires() {
         }
     }, [])
 
-    console.log(populrsMovies)
    
 
     const nextPage = (event) => {
@@ -59,7 +58,8 @@ function SectionFimsPopulaires() {
     }
     return (
         <section className="films-populaires" >
-            {   populrsMovies.results !== undefined ? <div className="section-title">
+            {
+                populrsMovies.results !== undefined ? <div className="section-title">
                 <h2>Films populaires</h2>
             </div>: null} 
             <diw className="container">

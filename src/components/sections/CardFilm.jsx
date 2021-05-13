@@ -15,7 +15,7 @@ function CardFilm({ data, poster_path, genresMovies}) {
     }
     return (
 
-        <div className="col-6 col-md-4 col-lg-2 mt-1 w-responsive">
+        <div className="col-6 col-md-4 col-lg-2 w-responsive">
             <div className="card">
                 <img src={poster_path + data.poster_path} className="card-img-top img-fluid" alt={data.title} />
                 <div className="card-body">
