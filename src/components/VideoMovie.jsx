@@ -41,10 +41,8 @@ function VideoMovie({ match }) {
                         {
                             keyMovie.length > 0 ?
                                 <iframe src={"https://www.youtube.com/embed/" + keyMovie[0].key} title="YouTube video player" frameBorder={0} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
-
-                               
                                 
-                                : <div className="info-movie" > <span>Aucun extrait disponible</span> </div>
+                                : <div className="info-movie" > <div className="alert alert-dark w-100" role="alert" >Aucun extrait disponible</div> </div>
                            
                       }
                         
