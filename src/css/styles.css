@@ -88,11 +88,11 @@ footer {
   padding: 0 !important;
   font-size: 1rem;
 }
-.card .card-body p {
+.card .card-body div {
   padding: 0;
   margin-bottom: 5px;
 }
-.card .card-body p span {
+.card .card-body div .item {
   height: 25px;
   width: 50px;
   display: inline-flex;
@@ -103,10 +103,20 @@ footer {
   font-size: 1rem;
   cursor: pointer;
 }
-.card .card-body p span:nth-child(2) {
+.card .card-body div .item:nth-child(2) {
   width: 80px;
   border: 2px solid red;
   border-radius: 25px;
+}
+.card .card-body div p svg {
+  cursor: pointer;
+  transition: 0.6s ease-in-out;
+}
+.card .card-body div p span {
+  color: red;
+}
+.card .card-body div p span:hover {
+  color: rgba(255, 255, 0, 0.9);
 }
 .card .card-body .card-title {
   margin-top: 5px;
@@ -137,7 +147,7 @@ footer {
   font-size: 1.5rem;
 }
 .card .film-info div:hover {
-  border-radius: 100%;
+  border-radius: 50%;
   border: 2px solid white;
   padding: 5px;
   box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.2);
@@ -146,7 +156,6 @@ footer {
   opacity: 1;
   height: 50%;
   border-radius: 0 5px 0 0;
-  transform: scale(1);
   cursor: pointer;
   transition: all 0.6s;
 }
