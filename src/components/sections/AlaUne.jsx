@@ -7,7 +7,7 @@ const api_key = "4649c10d4ba3c182bf2c9432f332bb4d"
 const poster_path = "https://image.tmdb.org/t/p/w500/"
 const [numPage, setNumPage] = useState(1)
     const [total_pages, setTotal_pages] = useState(1)
-    const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+
 const [nowPlayingMovies, setNowPlayingMovies] = useState({})
 
     const requete_nowPlayingMovies = `https://api.themoviedb.org/3/movie/now_playing?api_key=${api_key}&language=fr-FR&page=${numPage}`
@@ -29,6 +29,7 @@ const [nowPlayingMovies, setNowPlayingMovies] = useState({})
     }, [numPage, requete_nowPlayingMovies])
 
    //Convert date local
+    const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
     const getDateLocal = (dateString) => new Date(dateString).toLocaleDateString("fr-FR", options)
 
     //
@@ -74,5 +75,4 @@ const [nowPlayingMovies, setNowPlayingMovies] = useState({})
             </section>
     )
 }
-
 export default AlaUne

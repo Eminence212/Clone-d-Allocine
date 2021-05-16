@@ -7,9 +7,8 @@ function SectionFimsPopulaires() {
     const [numPage, setNumPage] = useState(1)
     const [total_pages,setTotal_pages] = useState(1)
     const [populrsMovies, setPopularsMovies] = useState({})
-    const [genresMovies, setGeresMovies] = useState([])
     const requete_popularsMovies = `https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&language=fr-FR&page=${numPage}`
-    const requete_genres = `https://api.themoviedb.org/3/genre/movie/list?api_key=${api_key}&language=fr-FR`
+  
   //Fetching popularsMovies
     useEffect(() => {
         try {
@@ -24,24 +23,7 @@ function SectionFimsPopulaires() {
         } catch (error) {
             console.log("Err :",error);
         }
-    }, [numPage,requete_popularsMovies])
-
-    //Fetchinng genres movies
-
-    useEffect(() => {
-        try {
-            fetch(requete_genres)
-                .then(function (res) {
-                    res.json()
-                        .then(function (data) {
-                            setGeresMovies(data.genres)
-                        })
-                })
-        } catch (error) {
-        }
-    }, [])
-
-   
+    }, [numPage,requete_popularsMovies]) 
 
     const nextPage = (event) => {
         event.preventDefault()
@@ -71,7 +53,7 @@ function SectionFimsPopulaires() {
                         populrsMovies.results !== undefined ?
                             
                     populrsMovies.results.map(movie => (
-                        < CardFilm data={movie} poster_path={poster_path} key={movie.id} genresMovies ={genresMovies} />
+                        < CardFilm data={movie} poster_path={poster_path} key={movie.id} />
                     )) : null
                 }
                 </div>

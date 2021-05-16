@@ -730,4 +730,21 @@ section .bouton-navigation span:hover {
   overflow-y: hidden;
 }
 
+.play-movie {
+  background: rgba(32, 32, 32, 0.9);
+  padding-top: 75px;
+}
+.play-movie iframe {
+  height: 90vh;
+  width: 100%;
+}
+.play-movie .info-movie {
+  height: 11vh;
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /*# sourceMappingURL=styles.css.map */

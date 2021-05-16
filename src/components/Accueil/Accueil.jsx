@@ -10,8 +10,8 @@ function Accueil() {
         <div id="sliderAccueil" className="carousel slide" data-ride="carousel">
             <Indicators/>
             <Carousel/>
-            <BoutonPrecedent/>
-            <BoutonSuivant/>
+            <BoutonPrecedent />
+            <BoutonSuivant />
         </div>
 
     )

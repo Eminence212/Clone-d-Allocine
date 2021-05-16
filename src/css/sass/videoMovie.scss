@@ -1,0 +1,17 @@
+.play-movie {
+  background: $color-black-un;
+  padding-top: 75px;
+  iframe{
+      height: 90vh;
+      width: 100%;
+  }
+  .info-movie{
+      height: 11vh;
+      width: 100%;
+      color: $color-wite;
+      display: flex;
+      justify-content: center;
+      align-items:center;
+  }
+
+}
