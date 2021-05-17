@@ -14,7 +14,7 @@ a {
   color: $color-wite;
   &:hover {
     text-decoration: none;
-    color: $color-red;
+    color: $color-wite;
   }
 }
 h1,
@@ -25,13 +25,21 @@ h5,
 h6 {
   font-family: "Montserrat", sans-serif;
 }
-section, footer {
+p{
+  color: rgba(255, 255, 255, 0.501);
+}
+h6{
+  text-transform: capitalize;
+}
+section,
+footer {
   padding: 60px 0;
   overflow: hidden;
 }
+
 .section-title {
   text-align: left;
-  padding-bottom: 2px;
+  padding-bottom: 5px;
   margin-left: 7%;
   h2 {
     font-size: 1.5rem;
@@ -50,6 +58,11 @@ section, footer {
       bottom: 0;
       left: 0;
     }
+    span{
+      text-transform: capitalize;
+      font-size: .9rem;
+      font-weight: normal;
+    }
   }
 }
 .card {
@@ -58,37 +71,56 @@ section, footer {
   border: none;
   background-color: transparent;
   position: relative;
+  margin: 10px;
   img {
     object-fit: cover;
     cursor: pointer;
     border-radius: 5px;
     transition: 0.6s ease-in-out;
     &:hover {
-      transform: scale(1);
+      animation: pulse;
+      animation-duration: 1s;
     }
   }
   .card-body {
     color: $color-wite;
     padding: 0 !important;
     font-size: 1rem;
-    p {
+    div {
       padding: 0;
-      span {
+      margin-bottom: 5px;
+      .item {
         height: 25px;
         width: 50px;
         display: inline-flex;
         margin-right: 5px;
+        margin-bottom: 5px;
         justify-content: center;
         align-items: center;
+        font-size: 1rem;
+        cursor: pointer;
         &:nth-child(2) {
+          width: 80px;
           border: 2px solid $color-red;
           border-radius: 25px;
+        }
+      }
+      p{
+      svg{
+        cursor: pointer;
+        transition: 0.6s ease-in-out;
+      }
+        span{
+          color:$color-red;
+           &:hover{
+           color: rgba(255, 255, 0, 0.9);
+        }
         }
       }
     }
     .card-title {
       margin-top: 5px;
-      font-size: 1rem;
+      font-size: 0.8rem;
       text-transform: uppercase;
     }
   }
@@ -113,12 +145,12 @@ section, footer {
       transition: 0.3s ease-in-out;
       svg {
         color: $color-wite;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
       }
       &:hover {
-        border-radius: 100%;
+        border-radius: 50%;
         border: 2px solid $color-wite;
-        padding: 5px;
+        padding: 3px;
         box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.2);
       }
     }
@@ -128,9 +160,36 @@ section, footer {
       opacity: 1;
       height: 50%;
       border-radius: 0 5px 0 0;
-      transform: scale(1);
+      // transform: scale(1);
       cursor: pointer;
       transition: all 0.6s;
+    }
+  }
+}
+//Section
+section {
+  .bouton-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    span {
+      color: $color-wite;
+      width: 150px;
+      margin: 15px;
+      height:  2.5rem;
+      background-color: transparent;
+      outline: none;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $color-red;
+      border-radius: 5px;
+      transition: all 0.3s ease-out;
+      &:hover {
+        transform: scale(0.89);
+      }
     }
   }
 }

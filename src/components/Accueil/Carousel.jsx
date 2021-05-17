@@ -2,7 +2,8 @@ import React from 'react'
 import hero1 from '../images/hero1.jpg'
 import hero2 from '../images/hero2.jpg'
 import hero3 from '../images/hero3.jpg'
-import { MdPlayArrow, MdAdd } from 'react-icons/md'
+import { BsInfoCircle } from 'react-icons/bs'
+import { BiCaretRightCircle} from 'react-icons/bi'
 
 function Carousel() {
     return (
@@ -20,7 +21,7 @@ function Carousel() {
                     </div>
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates delectus ex aspernatur suscipit illo! Labore animi veritatis sapiente reprehenderit iusto dicta, odit nihil necessitatibus atque aliquid!</p>
                     <p className="animate__animated animate__zoomIn animate__delay-2s">
-                        <a href="/"><MdPlayArrow />Jouer</a><a href="/"><MdAdd />Ma Liste</a>
+                        <a href="/"><BiCaretRightCircle />Jouer</a><a href="/"><BsInfoCircle />Voir plus</a>
                     </p>
                 </div>
             </div>
@@ -37,7 +38,7 @@ function Carousel() {
                     </div>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, tempore vero qui rem voluptatibus voluptas dolor itaque id numquam, consectetur iusto explicabo fuga architecto tempora maiores.</p>
                     <p className="animate__animated animate__zoomIn animate__delay-2s">
-                        <a href="/"><MdPlayArrow />Jouer</a><a href="/"><MdAdd />Ma Liste</a>
+                        <a href="/"><BiCaretRightCircle />Jouer</a><a href="/"><BsInfoCircle />Voir plus</a>
                     </p>
                 </div>
             </div>
@@ -53,7 +54,7 @@ function Carousel() {
                     </div>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur, earum quos laudantium, non a beatae, atque cumque debitis quae natus est sapiente iure itaque consequuntur!</p>
                     <p className="animate__animated animate__zoomIn animate__delay-2s">
-                        <a href="/"><MdPlayArrow />Jouer</a><a href="/"><MdAdd />Ma Liste</a>
+                        <a href="/"><BiCaretRightCircle />Jouer</a><a href="/"><BsInfoCircle />Voir plus</a>
                     </p>
                 </div>
             </div>

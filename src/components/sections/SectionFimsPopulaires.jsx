@@ -1,76 +1,68 @@
-import React from 'react'
+import React ,{useState,useEffect} from 'react'
 import CardFilm from './CardFilm'
-import image1 from '../images/populaire/01.jpg'
-import image2 from '../images/populaire/01 (1).jpg'
-import image3 from '../images/populaire/01 (2).jpg'
-import image4 from '../images/populaire/01 (3).jpg'
-import image5 from '../images/populaire/01 (5).jpg'
+import ButtonNavigation from '../ButtonNavigation'
 function SectionFimsPopulaires() {
-  const  moviesPopulars = [
-      {
-          id: 1,
-          image: image1,
-          titre: "The love",
-          annee: "2021",
-          age: "+18",
-          type : "Action"
-      },
-      {
-          id: 2,
-          image: image2,
-          titre: "The love",
-          annee: "2021",
-          age: "+18",
-          type: "Action"
+    const api_key = "4649c10d4ba3c182bf2c9432f332bb4d"
+    const poster_path = "https://image.tmdb.org/t/p/w500/"
+    const [numPage, setNumPage] = useState(1)
+    const [total_pages,setTotal_pages] = useState(1)
+    const [populrsMovies, setPopularsMovies] = useState({})
+    const requete_popularsMovies = `https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&language=fr-FR&page=${numPage}`
+  
+  //Fetching popularsMovies
+    useEffect(() => {
+        try {
+            fetch(requete_popularsMovies)
+                .then(function (res) {
+                    res.json()
+                .then(function (data) {
+                    setPopularsMovies(data)
+                    setTotal_pages(data.total_pages)
+                })
+                })
+        } catch (error) {
+            console.log("Err :",error);
+        }
+    }, [numPage,requete_popularsMovies]) 
 
-      },
-      {
-          id: 3,
-          image: image3,
-          titre: "The love",
-          annee: "2021",
-          age: "+18",
-          type: "Action"
-
-      },
-      {
-          id: 4,
-          image: image4,
-          titre: "The love",
-          annee: "2021",
-          age: "+18",
-          type: "Action"
-
-      },
-      {
-          id: 5,
-          image: image5,
-          titre: "The love",
-          annee: "2021",
-          age: "+18",
-          type: "Action"
-
-      }
-    ]
+    const nextPage = (event) => {
+        event.preventDefault()
+        if (numPage < total_pages) {
+          setNumPage(numPage+1)
+        }
+  }
+    const previousPage = (event) => {
+        event.preventDefault()
+        if (numPage > 1 && numPage <= total_pages) {
+            setNumPage(numPage -1)
+        }
+        console.log("previous page")
+    }
     return (
         <section className="films-populaires" >
-            <div className="section-title">
-                <h2>Films populaire</h2>
-            </div>
+            {
+                populrsMovies.results !== undefined ? <div className="section-title">
+                <h2>Films populaires</h2>
+            </div>: null} 
             <diw className="container">
-                   
-                
+                {
+                    populrsMovies.results !== undefined ? <ButtonNavigation numPage={numPage} nextPage={nextPage} previousPage={previousPage} total_pages={total_pages} /> : null
+                }
                 <div className= "row justify-content-center" >
-                    {
-                        moviesPopulars.map(movie => (
-                            < CardFilm data = {movie} key = {movie.id} />
-                        ))
-                    }
+                {
+                        populrsMovies.results !== undefined ?
+                            
+                    populrsMovies.results.map(movie => (
+                        < CardFilm data={movie} poster_path={poster_path} key={movie.id} />
+                    )) : null
+                }
                 </div>
-                 
+                {
+                    populrsMovies.results !== undefined ? <ButtonNavigation numPage={numPage} nextPage={nextPage} previousPage={previousPage} total_pages={total_pages} />:null
+               }
             </diw>
+          
         </section>
     )
 }
-
 export default SectionFimsPopulaires

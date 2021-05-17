@@ -13,7 +13,7 @@ const Header = () =>{
         setShowLinks(!showLinks)
     }
     return(
-    <header id="header" className="fixed-top entete">
+        <header id="header" className="fixed-top entete animate__animated animate__fadeIn animate__delay-0.6s">
         <div className="container d-flex align-items-center justify-content-between">
         <h1 className="logo me-auto"><NavLink to="/" exact ={true} ><span>Emi</span>Stream</NavLink></h1>
         <SearchBox/>
