@@ -1,84 +1,101 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { MdSearch } from 'react-icons/md'
 import CardFilm from '../components/sections/CardFilm'
-import image1 from '../components/images/populaire/01 (1).jpg'
-import image2 from '../components/images/populaire/01.jpg'
-import image3 from '../components/images/populaire/01 (2).jpg'
-import image4 from '../components/images/populaire/01 (3).jpg'
-import image5 from '../components/images/populaire/01 (5).jpg'
+import ButtonNavigation from './ButtonNavigation'
+
 function MoviesSearch() {
+    const poster_path = "https://image.tmdb.org/t/p/w500/"
+    const api_key = "4649c10d4ba3c182bf2c9432f332bb4d"
+    const [searchValue, setSearchValue] = useState("")
+    const [numPage, setNumPage] = useState(1)
+    const [total_pages, setTotal_pages] = useState(1)
+    const [movies,setMovies] = useState([])
+    let requete = `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&language=fr-FR&query=${searchValue}&page=${numPage}`
+    let requete_all = `https://api.themoviedb.org/3/movie/now_playing?api_key=${api_key}&language=fr-FR&page=${numPage}`
+    const HandleSubmit = (e) => {
+        e.preventDefault()
+        try {
+            
+            fetch(searchValue !== "" ? requete : requete_all)
+                .then((response) => {
+                    response.json()
+                        .then((dataSet) => {
+                            setMovies(dataSet.results)
+                            setTotal_pages(dataSet.total_pages)
+                        })
+                })
+        } catch (error) {
+            console.error(error);
+        }
+       
+   }
+    const HandleChange = (e) => {
+        e.preventDefault()
+        setSearchValue(e.target.value)
 
-        const moviesPopulars = [
-            {
-                id: 1,
-                image: image1,
-                titre: "The love",
-                annee: "2021",
-                age: "+18",
-                type: "Action"
-            },
-            {
-                id: 2,
-                image: image2,
-                titre: "The love",
-                annee: "2021",
-                age: "+18",
-                type: "Action"
+    }
+    const nextPage = (event) => {
+        event.preventDefault()
+        if (numPage < total_pages) {
+            setNumPage(numPage + 1)
+        }
+    }
+    const previousPage = (event) => {
+        event.preventDefault()
+        if (numPage > 1 && numPage <= total_pages) {
+            setNumPage(numPage - 1)
+        }
+    }
+    useEffect(() => {
+        try {
 
-            },
-            {
-                id: 3,
-                image: image3,
-                titre: "The love",
-                annee: "2021",
-                age: "+18",
-                type: "Action"
-
-            },
-            {
-                id: 4,
-                image: image4,
-                titre: "The love",
-                annee: "2021",
-                age: "+18",
-                type: "Action"
-
-            },
-            {
-                id: 5,
-                image: image5,
-                titre: "The love",
-                annee: "2021",
-                age: "+18",
-                type: "Action"
-
-            }
-        ]
+            fetch(searchValue !== "" ? requete : requete_all)
+                .then((response) => {
+                    response.json()
+                        .then((dataSet) => {
+                            setMovies(dataSet.results)
+                            setTotal_pages(dataSet.total_pages)
+                        })
+                })
+        } catch (error) {
+            console.error(error);
+        }
+    }, [numPage])
+    console.log('Total page : ',total_pages)
     return (
         <section className= "search-movies" >
 
             <div className="container-fluid">
                 <div className="row justify-content-center">
-                    <form className= "col-11 col-md-6 col-lg-10 mt-3 search-box animate__animated animate__fadeIn animate__delay-0.6s" >
+                    <form action ="" onSubmit = {HandleSubmit} className= "col-11 col-md-6 col-lg-10 mt-3 search-box animate__animated animate__fadeIn animate__delay-0.6s" >
                         <div className="input-group form-container">
-                            <input className="form-control search-input" type="text" placeholder="Titre du film ici" autofocus="autofocus" autoCorrect = "off" />
+                            <input className="form-control search-input" onChange = {HandleChange} name = "query" type="text" placeholder="Titre du film ici" autofocus="autofocus" autoCorrect="on" />
                             <span className="input-group-btn">
                                 <button className="btn btn-search">
-                                    <MdSearch/>
+                                    <MdSearch />
                                 </button>
                             </span>
-                        
                         </div>
                     </form>
                 </div>
-                <div className="row justify-content-center pt-3">
+                {
+                
+                    (movies !== undefined && movies.length > 0 )? <ButtonNavigation numPage={numPage} nextPage={nextPage} previousPage={previousPage} total_pages={total_pages} /> : null
+                }
+             
+                <div className="row justify-content-center pt-3 searchCard">
                     {
-                        moviesPopulars.map(movie => (
-                            < CardFilm data={movie} key={movie.id} />
+                        (  movies !== undefined && movies.length > 0 )?
+                        movies.map(movie => (
+                            movie.poster_path ? < CardFilm data={movie} poster_path={poster_path} key={movie.id} /> : null
                          
-                        ))
+                        )) : "Aucun résultat trouvé pour "+searchValue
                     }
                 </div>
+                {
+
+                    (movies !== undefined && movies.length > 0 )? <ButtonNavigation numPage={numPage} nextPage={nextPage} previousPage={previousPage} total_pages={total_pages} /> : null
+                }
              </div>
         </section>
     )

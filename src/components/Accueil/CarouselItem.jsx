@@ -1,9 +1,11 @@
 import React from 'react'
-import { MdPlayArrow, MdAdd } from 'react-icons/md'
+
+import { BsInfoCircle } from 'react-icons/bs'
+import { BiCaretRightCircle } from 'react-icons/bi'
 function CarouselItem({ data }) {
-    console.log(data.id);
+
     return (
-        <div className={"carousel-item " + data.id == 1 ? "active" : null}>
+        <div className={"carousel-item " + data.id === 1 ? "active" : null}>
             <img src={data.image} className="d-block w-100" alt="Acteur-1" />
             <div className="carousel-caption d-none d-md-block animate__animated animate__fadeIn animate__delay-1s" >
                 <h2><span className="badge badge-warning">New</span></h2>
@@ -15,7 +17,7 @@ function CarouselItem({ data }) {
                 </div>
                 <p>{ data.description}</p>
                 <p className="animate__animated animate__zoomIn animate__delay-2s">
-                    <a href="/"><MdPlayArrow />Jouer</a><a href="/"><MdAdd />Ma Liste</a>
+                    <a href="/"><BiCaretRightCircle />Jouer</a><a href="/"><BsInfoCircle />Voir plus</a>
                 </p>
             </div>
         </div>

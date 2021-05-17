@@ -6,7 +6,7 @@ function AlaUne() {
 const api_key = "4649c10d4ba3c182bf2c9432f332bb4d"
 const poster_path = "https://image.tmdb.org/t/p/w500/"
 const [numPage, setNumPage] = useState(1)
-    const [total_pages, setTotal_pages] = useState(1)
+const [total_pages, setTotal_pages] = useState(1)
 
 const [nowPlayingMovies, setNowPlayingMovies] = useState({})
 
@@ -44,7 +44,6 @@ const [nowPlayingMovies, setNowPlayingMovies] = useState({})
         if (numPage > 1 && numPage <= total_pages) {
             setNumPage(numPage - 1)
         }
-        console.log("previous page")
     }
     return (
       
