@@ -60,7 +60,7 @@ function MoviesSearch() {
         } catch (error) {
             console.error(error);
         }
-    }, [numPage])
+    }, [numPage, requete_all,requete])
     console.log('Total page : ',total_pages)
     return (
         <section className= "search-movies" >
