@@ -6,6 +6,7 @@ import {
     FaSkype,
     FaTwitter
 } from 'react-icons/fa'
+import { NavLink } from 'react-router-dom'
 function Footer() {
     return (
         <>
@@ -13,7 +14,7 @@ function Footer() {
                 <div className="container">
                     <div className="row">
                         <div className="col-12 col-md-6 col-lg-5">
-                            <h1 className="logo me-auto"><a href="/index.html"><span>Emi</span>Stream</a></h1>
+                            <h1 className="logo me-auto"><NavLink to="/" exact={true}><span>Emi</span>Stream</NavLink></h1>
                             <address>
                                 N° 13, Avenue SELO <br />
                             Quartier 1, N'djili<br />

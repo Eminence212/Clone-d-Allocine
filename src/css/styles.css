@@ -618,7 +618,6 @@ section .bouton-navigation span:hover {
 .search-movies {
   background: rgba(32, 32, 32, 0.9);
   padding-top: 75px;
-  height: 100vh;
 }
 .search-movies svg {
   color: white;
@@ -636,6 +635,13 @@ section .bouton-navigation span:hover {
   box-shadow: none;
   height: 40px;
   border-radius: 8px 0 0 8px;
+}
+.search-movies .searchCard .card-text p svg {
+  font-size: 1rem;
+}
+.search-movies .searchCard .card-text p span svg {
+  color: red !important;
+  font-size: 1rem;
 }
 
 .detail-movie {
