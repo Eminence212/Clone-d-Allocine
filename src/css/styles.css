@@ -410,10 +410,16 @@ section .bouton-navigation span:hover {
 }
 
 .carousel-caption {
-  width: 42vw;
-  bottom: 8.6rem;
-  left: 130px;
+  width: 100vw;
+  height: 100%;
+  padding-bottom: 8.9rem;
+  padding-top: 9.5rem;
+  background: linear-gradient(217deg, rgba(253, 3, 3, 0.001), rgba(0, 0, 0, 0) 70.71%), linear-gradient(127deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0) 70.71%), linear-gradient(336deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 255, 0) 70.71%);
+  left: 0;
+  bottom: 0;
+  padding-left: 8.5%;
   text-align: start;
+  z-index: 0;
 }
 .carousel-caption h5 {
   font-size: 55px;
@@ -425,7 +431,8 @@ section .bouton-navigation span:hover {
 }
 .carousel-caption p {
   height: 50px;
-  width: 70%;
+  width: 30%;
+  color: white;
 }
 .carousel-caption div {
   height: 20px;
@@ -443,7 +450,8 @@ section .bouton-navigation span:hover {
   border: 2px solid red;
   border-radius: 25px;
 }
-.carousel-caption div, .carousel-caption p {
+.carousel-caption div,
+.carousel-caption p {
   display: flex;
   margin-bottom: 15px;
   font-style: 18px;

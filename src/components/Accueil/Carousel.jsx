@@ -8,9 +8,9 @@ import { BiCaretRightCircle} from 'react-icons/bi'
 
 function Carousel() {
     const api_key = "4649c10d4ba3c182bf2c9432f332bb4d"
-    const poster_path = "https://image.tmdb.org/t/p/w500/"
+    const poster_path = "https://image.tmdb.org/t/p/w500"
 
-    const [nowPlayingMovies, setNowPlayingMovies] = useState({})
+    const [nowPlayingMovies, setNowPlayingMovies] = useState([])
 
     const requete_nowPlayingMovies = `https://api.themoviedb.org/3/movie/now_playing?api_key=${api_key}&language=fr-FR&page=1`
 
@@ -21,7 +21,7 @@ function Carousel() {
                 .then(function (res) {
                     res.json()
                         .then(function (data) {
-                            setNowPlayingMovies(data)
+                            setNowPlayingMovies(data.results)
                           
                         })
                 })
@@ -32,20 +32,24 @@ function Carousel() {
     return (
         <div className="carousel-inner">
             <div className="carousel-item active">
+
                 <img src={hero1} className="d-block w-100" alt="Acteur-1" />
-                <div className="carousel-caption d-none d-md-block animate__animated animate__fadeIn animate__delay-1s" >
-                    <h2><span className="badge badge-warning">New</span></h2>
-                    <h5>Iron door</h5>
-                    <div>
-                        <span>2021</span>
-                        <span>+18</span>
-                        <span>2h6m</span>
+                
+                <div className = "overlay" >
+                    <div className="carousel-caption d-none d-md-block animate__animated animate__fadeIn animate__delay-1s" >
+                        <h2><span className="badge badge-warning">New</span></h2>
+                        <h5>Iron door</h5>
+                        <div>
+                            <span>2021</span>
+                            <span>+18</span>
+                            <span>2h6m</span>
+                        </div>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates delectus ex aspernatur suscipit illo! Labore animi veritatis sapiente reprehenderit iusto dicta, odit nihil necessitatibus atque aliquid!</p>
+                        <p className="animate__animated animate__zoomIn animate__delay-2s">
+                            <a href="/"><BiCaretRightCircle />Jouer</a><a href="/"><BsInfoCircle />Voir plus</a>
+                        </p>
                     </div>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates delectus ex aspernatur suscipit illo! Labore animi veritatis sapiente reprehenderit iusto dicta, odit nihil necessitatibus atque aliquid!</p>
-                    <p className="animate__animated animate__zoomIn animate__delay-2s">
-                        <a href="/"><BiCaretRightCircle />Jouer</a><a href="/"><BsInfoCircle />Voir plus</a>
-                    </p>
-                </div>
+               </div>
             </div>
            
             <div className="carousel-item">
