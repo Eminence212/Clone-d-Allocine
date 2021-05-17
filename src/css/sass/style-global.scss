@@ -14,7 +14,7 @@ a {
   color: $color-wite;
   &:hover {
     text-decoration: none;
-    color: $color-red;
+    color: $color-wite;
   }
 }
 h1,
@@ -25,11 +25,18 @@ h5,
 h6 {
   font-family: "Montserrat", sans-serif;
 }
+p{
+  color: rgba(255, 255, 255, 0.501);
+}
+h6{
+  text-transform: capitalize;
+}
 section,
 footer {
   padding: 60px 0;
   overflow: hidden;
 }
+
 .section-title {
   text-align: left;
   padding-bottom: 5px;
@@ -138,12 +145,12 @@ footer {
       transition: 0.3s ease-in-out;
       svg {
         color: $color-wite;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
       }
       &:hover {
         border-radius: 50%;
         border: 2px solid $color-wite;
-        padding: 5px;
+        padding: 3px;
         box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.2);
       }
     }

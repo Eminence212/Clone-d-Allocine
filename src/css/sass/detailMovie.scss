@@ -95,21 +95,80 @@
         object-fit: contain;
       }
       .card-body {
+
         .card-title {
           color: $color-black-un;
           text-align: center;
-          font-weight: 600;
+          font-weight: bold;
           line-height: 1.5;
           letter-spacing: 2px;
         }
+         ul{
+            color: $color-black-un;
+             line-height: 1.3;
+             font-size: 1rem;
+            padding-left: 20px;
+            li{
+              span{
+                font-weight: 500;
+              }
+            }
+          }
       }
     }
     .acteurs {
       display: flex;
       flex-direction: row;
       flex-wrap: nowrap;
-      height: 13rem;
+      height: 24rem;
       overflow-y: hidden;
+      overflow-x: auto;
+       overscroll-behavior-x: contain;
+    }
+  }
+  .film-simulaire{
+    background: $color-black-un;
+     h5 {
+      color: $color-wite;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .card {
+      width: 8rem;
+      color: $color-wite;
+      img {
+        object-fit: contain;
+      }
+      .card-body {
+
+        .card-title {
+          color: $color-wite;
+          text-align: center;
+          font-weight: bold;
+          line-height: 1.5;
+          letter-spacing: 2px;
+        }
+         ul{
+            color: $color-wite;
+             line-height: 1.3;
+             font-size: 1rem;
+            padding-left: 20px;
+            li{
+              span{
+                font-weight: 500;
+              }
+            }
+          }
+      }
+    }
+    .acteurs {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      // height: 20rem;
+      overflow-y: hidden;
+      overflow-x: auto;
     }
   }
 }

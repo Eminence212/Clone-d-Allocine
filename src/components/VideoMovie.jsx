@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react'
 
 function VideoMovie({ match }) {
     const [keyMovie,setKeyMovie] = useState([])
-    let idMovie = Number(match.params.query)
+    const idMovie = Number(match.params.query)
        const api_key = "4649c10d4ba3c182bf2c9432f332bb4d"
     const requete = `https://api.themoviedb.org/3/movie/${idMovie}/videos?api_key=${api_key}&language=fr-FR`
 
-  async  function getKeyMovie(requete) {
+  function getKeyMovie(requete) {
         try {
             fetch(requete)
                 .then((response) => {

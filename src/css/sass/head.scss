@@ -45,6 +45,7 @@
         position: relative;
         font-size: 2rem;
         cursor: pointer;
+        color: $color-red;
         transition: all 0.3s ease-in-out;
         &:hover{
           transform: rotateZ(90deg);
