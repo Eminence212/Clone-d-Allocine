@@ -1,7 +1,8 @@
 import React ,{useState,useEffect} from 'react'
 import CardFilm from './CardFilm'
 import ButtonNavigation from '../ButtonNavigation'
-function SectionFimsPopulaires() {
+import GenresMovies from '../Genres/GenresMovies'
+function SectionFimsPopulaires({ genresMovies}) {
     const api_key = "4649c10d4ba3c182bf2c9432f332bb4d"
     const poster_path = "https://image.tmdb.org/t/p/w500/"
     const [numPage, setNumPage] = useState(1)
@@ -42,7 +43,12 @@ function SectionFimsPopulaires() {
         <section className="films-populaires" >
             {
                 populrsMovies.results !== undefined ? <div className="section-title">
-                <h2>Films populaires</h2>
+                    <h2>Films populaires</h2>
+                    {
+                        (genresMovies !== undefined && genresMovies.length > 0) ?
+                            <GenresMovies ganres={genresMovies} />
+                            : null
+                    }
             </div>: null} 
             <diw className="container">
                 {

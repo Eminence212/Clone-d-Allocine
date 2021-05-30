@@ -1,8 +1,9 @@
 import React, { useState, useEffect }  from 'react'
 import CardFilm from './CardFilm'
 import ButtonNavigation from '../ButtonNavigation'
+import GenresMovies from '../Genres/GenresMovies'
 
-function AlaUne() {
+function AlaUne({ genresMovies}) {
 const api_key = "4649c10d4ba3c182bf2c9432f332bb4d"
 const poster_path = "https://image.tmdb.org/t/p/w500/"
 const [numPage, setNumPage] = useState(1)
@@ -11,13 +12,14 @@ const [total_pages, setTotal_pages] = useState(1)
 const [nowPlayingMovies, setNowPlayingMovies] = useState({})
 
     const requete_nowPlayingMovies = `https://api.themoviedb.org/3/movie/now_playing?api_key=${api_key}&language=fr-FR&page=${numPage}`
-
+   
+  
     //Fetching NowPlayin
     useEffect(() => {
         try {
             fetch(requete_nowPlayingMovies)
-                .then(function (res) {
-                    res.json()
+                .then(function (response) {
+                    response.json()
                         .then(function (data) {
                             setNowPlayingMovies(data)
                             setTotal_pages(data.total_pages)
@@ -51,7 +53,12 @@ const [nowPlayingMovies, setNowPlayingMovies] = useState({})
             {
                 nowPlayingMovies.results !== undefined ?
                 <div className="section-title">
-                        <h2>A la une , <span> {getDateLocal(nowPlayingMovies.dates.minimum) + " - " + getDateLocal(nowPlayingMovies.dates.maximum)}</span></h2>
+                    <h2>A la une , <span> {" Du " + getDateLocal(nowPlayingMovies.dates.minimum) + " au " + getDateLocal(nowPlayingMovies.dates.maximum)}</span></h2>
+                        {
+                           ( genresMovies !== undefined && genresMovies.length >0 )?
+                                <GenresMovies ganres={genresMovies} />
+                                :null
+                        }
                 </div> : null
             }
             <diw className="container">

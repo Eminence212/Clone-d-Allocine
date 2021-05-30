@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { MdSearch } from 'react-icons/md'
 import CardFilm from '../components/sections/CardFilm'
 import ButtonNavigation from './ButtonNavigation'
+import GenresMovies from './Genres/GenresMovies'
 
-function MoviesSearch() {
+function MoviesSearch({ genresMovies}) {
     const poster_path = "https://image.tmdb.org/t/p/w500/"
     const api_key = "4649c10d4ba3c182bf2c9432f332bb4d"
     const [searchValue, setSearchValue] = useState("")
@@ -61,12 +62,13 @@ function MoviesSearch() {
             console.error(error);
         }
     }, [numPage, requete_all,requete])
-    console.log('Total page : ',total_pages)
+
     return (
         <section className= "search-movies" >
 
             <div className="container-fluid">
                 <div className="row justify-content-center">
+
                     <form action ="" onSubmit = {HandleSubmit} className= "col-11 col-md-6 col-lg-10 mt-3 search-box animate__animated animate__fadeIn animate__delay-0.6s" >
                         <div className="input-group form-container">
                             <input className="form-control search-input" onChange = {HandleChange} name = "query" type="text" placeholder="Titre du film ici" autofocus="autofocus" autoCorrect="on" />
@@ -78,9 +80,17 @@ function MoviesSearch() {
                         </div>
                     </form>
                 </div>
-                {
-                
-                    (movies !== undefined && movies.length > 0 )? <ButtonNavigation numPage={numPage} nextPage={nextPage} previousPage={previousPage} total_pages={total_pages} /> : null
+                {   
+                        
+                    (movies !== undefined && movies.length > 0) ?
+                        <>
+                    <div className="container justify-content-center">
+                        <GenresMovies ganres={genresMovies} />
+                        <ButtonNavigation numPage={numPage} nextPage={nextPage} previousPage={previousPage} total_pages={total_pages} />
+                    </div>
+                    </>
+                            : null
+                    
                 }
              
                 <div className="row justify-content-center pt-3 searchCard">

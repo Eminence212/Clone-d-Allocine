@@ -6,7 +6,7 @@ import BoutonPrecedent from './BoutonPrecedent'
 import BoutonSuivant from './BoutonSuivant'
 function Accueil() {
     return (
-
+        
         <div id="sliderAccueil" className="carousel slide" data-ride="carousel">
             <Indicators/>
             <Carousel/>

@@ -3,32 +3,13 @@ import hero1 from '../images/hero1.jpg'
 import hero2 from '../images/hero2.jpg'
 import hero3 from '../images/hero3.jpg'
 import { BsInfoCircle } from 'react-icons/bs'
-import { BiCaretRightCircle} from 'react-icons/bi'
+import { BiCaretRightCircle } from 'react-icons/bi'
+import axios from 'axios'
+
 // import CarouselItem from '../Accueil/CarouselItem'
 
 function Carousel() {
-    const api_key = "4649c10d4ba3c182bf2c9432f332bb4d"
-    const poster_path = "https://image.tmdb.org/t/p/w500"
 
-    const [nowPlayingMovies, setNowPlayingMovies] = useState([])
-
-    const requete_nowPlayingMovies = `https://api.themoviedb.org/3/movie/now_playing?api_key=${api_key}&language=fr-FR&page=1`
-
-    //Fetching NowPlayin
-    useEffect(() => {
-        try {
-            fetch(requete_nowPlayingMovies)
-                .then(function (res) {
-                    res.json()
-                        .then(function (data) {
-                            setNowPlayingMovies(data.results)
-                          
-                        })
-                })
-        } catch (error) {
-            console.log("Err :", error);
-        }
-    }, [requete_nowPlayingMovies])
     return (
         <div className="carousel-inner">
             <div className="carousel-item active">

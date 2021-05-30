@@ -95,7 +95,6 @@
         object-fit: contain;
       }
       .card-body {
-
         .card-title {
           color: $color-black-un;
           text-align: center;
@@ -103,17 +102,17 @@
           line-height: 1.5;
           letter-spacing: 2px;
         }
-         ul{
-            color: $color-black-un;
-             line-height: 1.3;
-             font-size: 1rem;
-            padding-left: 20px;
-            li{
-              span{
-                font-weight: 500;
-              }
+        ul {
+          color: $color-black-un;
+          line-height: 1.3;
+          font-size: 1rem;
+          padding-left: 20px;
+          li {
+            span {
+              font-weight: 500;
             }
           }
+        }
       }
     }
     .acteurs {
@@ -123,12 +122,22 @@
       height: 24rem;
       overflow-y: hidden;
       overflow-x: auto;
-       overscroll-behavior-x: contain;
+      &::-webkit-scrollbar {
+        height: 10px;
+        background: transparent;
+        cursor: pointer;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: $color-red;
+        border-radius: 20px;
+        border: 1px solid $color-red;
+        cursor: pointer;
+      }
     }
   }
-  .film-simulaire{
+  .film-simulaire {
     background: $color-black-un;
-     h5 {
+    h5 {
       color: $color-wite;
       font-size: 1.5rem;
       font-weight: bold;
@@ -141,7 +150,6 @@
         object-fit: contain;
       }
       .card-body {
-
         .card-title {
           color: $color-wite;
           text-align: center;
@@ -149,17 +157,17 @@
           line-height: 1.5;
           letter-spacing: 2px;
         }
-         ul{
-            color: $color-wite;
-             line-height: 1.3;
-             font-size: 1rem;
-            padding-left: 20px;
-            li{
-              span{
-                font-weight: 500;
-              }
+        ul {
+          color: $color-wite;
+          line-height: 1.3;
+          font-size: 1rem;
+          padding-left: 20px;
+          li {
+            span {
+              font-weight: 500;
             }
           }
+        }
       }
     }
     .acteurs {
@@ -169,6 +177,17 @@
       // height: 20rem;
       overflow-y: hidden;
       overflow-x: auto;
+      &::-webkit-scrollbar {
+        height: 10px;
+        background: transparent;
+        cursor: pointer;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: $color-red;
+        border-radius: 20px;
+        border: 1px solid $color-red;
+        cursor: pointer;
+      }
     }
   }
 }
