@@ -318,7 +318,7 @@ section .bouton-navigation span:hover {
   cursor: pointer;
   display: none;
   line-height: 0;
-  transition: 0.5s;
+  transition: 0.5s ease;
 }
 .mobile-nav-toggle.bi-x {
   color: white;

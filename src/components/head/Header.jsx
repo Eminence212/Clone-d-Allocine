@@ -20,8 +20,8 @@ const Header = () =>{
         
         <nav id="navbar" className={"navbar " + (showLinks? "navbar-mobile" : null)}>
             <ul>
-                        <li><NavLink className="nav-link scrollto" to="/" exact={true} >Accueil</NavLink></li>
-                        <li><NavLink className="nav-link scrollto" to="/movies-search">Films</NavLink></li>
+                        <li><NavLink className="nav-link scrollto" to="/" exact={true}  onClick = {handleClick}  >Accueil</NavLink></li>
+                        <li><NavLink className="nav-link scrollto" to="/movies-search"  onClick = {handleClick} >Films</NavLink></li>
                 <li><a 
                 className="nav-link scrollto" 
                 id = "settings" 

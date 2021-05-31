@@ -126,7 +126,7 @@
     cursor: pointer;
     display: none;
     line-height: 0;
-    transition: 0.5s;
+    transition: 0.5s ease;
      &.bi-x {
         color: $color-wite;
       }
@@ -145,13 +145,6 @@
   }
   #searchBox{
     display: none;
-  }
-  .entete{
-    span{
-      svg{
-        // display: none;
-      }
-    }
   }
 }
 .navbar-mobile {
