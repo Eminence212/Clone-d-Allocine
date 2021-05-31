@@ -3,16 +3,18 @@ import { MdPlayArrow, MdAdd } from 'react-icons/md'
 import { BsInfo } from 'react-icons/bs'
 import { NavLink } from 'react-router-dom'
 import Notes from '../Notes'
+import imgDefault from '../images/default/default.png'
 
 function CardFilm({ data, poster_path}) {
     const Note = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
- 
+    let img = data.poster_path !== null ? poster_path + data.poster_path : imgDefault
     return (
         
         <div className="col-6 col-md-4 col-lg-2 w-responsive">
         
             <div className="card">
-                <img src={poster_path + data.poster_path} className="card-img-top img-fluid" alt={data.title} />
+                <img src={img} className="card-img-top img-fluid" alt={data.title} />
+               
                 <div className="card-body">
                     <h5 className="card-title fw-bold">{data.title}</h5>
                     <div className="card-text">

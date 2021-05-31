@@ -10,14 +10,23 @@ function MoviesSearch({ genresMovies}) {
     const [searchValue, setSearchValue] = useState("")
     const [numPage, setNumPage] = useState(1)
     const [total_pages, setTotal_pages] = useState(1)
-    const [movies,setMovies] = useState([])
+    const [movies, setMovies] = useState([])
+     const [genreId, setGenreId] = useState(0)
+    const [isWithGenres,setIsWithGenres]=useState(false)
     let requete = `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&language=fr-FR&query=${searchValue}&page=${numPage}`
+    let requeteWith_genres = `https://api.themoviedb.org/3/search/movie?with_genres=${genreId}&api_key=${api_key}&language=fr-FR&query=${searchValue}&page=${numPage}`
+
     let requete_all = `https://api.themoviedb.org/3/movie/now_playing?api_key=${api_key}&language=fr-FR&page=${numPage}`
+
+    let requete_allWith_genres = `https://api.themoviedb.org/3/movie/now_playing?with_genres=${genreId}&api_key=${api_key}&language=fr-FR&page=${numPage}`
+
+    const requetes = (isWithGenres && genreId !==0) ? requeteWith_genres : requete
+     const requettes = (isWithGenres && genreId !==0) ? requete_allWith_genres : requete_all
     const HandleSubmit = (e) => {
         e.preventDefault()
         try {
             
-            fetch(searchValue !== "" ? requete : requete_all)
+            fetch(searchValue !== "" ? requetes : requettes)
                 .then((response) => {
                     response.json()
                         .then((dataSet) => {
@@ -47,10 +56,11 @@ function MoviesSearch({ genresMovies}) {
             setNumPage(numPage - 1)
         }
     }
+
     useEffect(() => {
         try {
 
-            fetch(searchValue !== "" ? requete : requete_all)
+            fetch(searchValue !== "" ? requetes : requettes)
                 .then((response) => {
                     response.json()
                         .then((dataSet) => {
@@ -61,8 +71,18 @@ function MoviesSearch({ genresMovies}) {
         } catch (error) {
             console.error(error);
         }
-    }, [numPage, requete_all,requete])
+    }, [numPage, requettes,requetes])
 
+    const handleChangeIdGender = (idGenre) => {
+        setNumPage(1)
+      setIsWithGenres(true)
+      setGenreId(idGenre)
+  }
+    const CancelGenderChange = () => {
+        setNumPage(1)
+    setIsWithGenres(false)
+      setGenreId(0)
+}
     return (
         <section className= "search-movies" >
 
@@ -85,7 +105,7 @@ function MoviesSearch({ genresMovies}) {
                     (movies !== undefined && movies.length > 0) ?
                         <>
                     <div className="container justify-content-center">
-                        <GenresMovies ganres={genresMovies} />
+                        <GenresMovies ganres={genresMovies} handleChangeIdGender = {handleChangeIdGender} CancelGenderChange = {CancelGenderChange} />
                         <ButtonNavigation numPage={numPage} nextPage={nextPage} previousPage={previousPage} total_pages={total_pages} />
                     </div>
                     </>

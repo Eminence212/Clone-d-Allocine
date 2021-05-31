@@ -1,67 +1,84 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import hero1 from '../images/hero1.jpg'
 import hero2 from '../images/hero2.jpg'
 import hero3 from '../images/hero3.jpg'
 import { BsInfoCircle } from 'react-icons/bs'
 import { BiCaretRightCircle } from 'react-icons/bi'
-import axios from 'axios'
+import { NavLink } from 'react-router-dom'
 
-// import CarouselItem from '../Accueil/CarouselItem'
 
-function Carousel() {
-
+function Carousel({ poster_path, data }) {
+const img1 = data.length >0 ? data[0].backdrop_path !==null? poster_path+data[0].backdrop_path:hero1 : hero1
+const img2 = data.length >0 ? data[1].backdrop_path !==null? poster_path+data[1].backdrop_path:hero1 : hero2
+const img3 = data.length >0 ? data[2].backdrop_path !==null? poster_path+data[2].backdrop_path:hero1 : hero3
+console.log(data)
     return (
         <div className="carousel-inner">
             <div className="carousel-item active">
 
-                <img src={hero1} className="d-block w-100" alt="Acteur-1" />
+                <img src={img1} className="d-block w-100" alt="Acteur-1" />
                 
                 <div className = "overlay" >
                     <div className="carousel-caption d-none d-md-block animate__animated animate__fadeIn animate__delay-1s" >
                         <h2><span className="badge badge-warning">New</span></h2>
-                        <h5>Iron door</h5>
+                        <h5>{data.length >0 ? data[0].title : null}</h5>
                         <div>
-                            <span>2021</span>
-                            <span>+18</span>
+                            <span>{data.length >0 ? data[0].release_date.slice(0, 4) : null}</span>
+                            <span>{data.length >0 ? data[0].popularity : 0}</span>
                             <span>2h6m</span>
                         </div>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates delectus ex aspernatur suscipit illo! Labore animi veritatis sapiente reprehenderit iusto dicta, odit nihil necessitatibus atque aliquid!</p>
-                        <p className="animate__animated animate__zoomIn animate__delay-2s">
-                            <a href="/"><BiCaretRightCircle />Jouer</a><a href="/"><BsInfoCircle />Voir plus</a>
+                        <p>
+                         
+                              {data.length >0 ? data[0].overview : null}
+                        </p>
+                        <p className="animate__animated animate__zoomIn animate__delay-2s mt-2">
+                           
+                          { data.length >0 ?<NavLink to={"/pay/movie/" + data[0].id} title="YouTube video player"><BiCaretRightCircle />Jouer</NavLink>:null}
+
+                            {data.length >0 ? <NavLink to={"/" + data[0].id} title={"Voir plus sur " + data[0].title} ><BsInfoCircle />Voir plus</NavLink> : null}
                         </p>
                     </div>
                </div>
             </div>
            
             <div className="carousel-item">
-                <img src={hero2} className="d-block w-100" alt="Acteur-2" />
+                <img src={img2} className="d-block w-100" alt="Acteur-2" />
                 <div className="carousel-caption d-none d-md-block animate__animated animate__fadeIn animate__delay-1s">
                     <h2><span className="badge badge-warning">New</span></h2>
-                    <h5>The earth</h5>
+                    <h5> {data.length >0 ? data[1].title : null}</h5>
                     <div>
-                        <span>2021</span>
-                        <span>+18</span>
+                        <span>{data.length >0 ? data[1].release_date.slice(0, 4) : null}</span>
+                        <span>{data.length >0 ? data[1].popularity : 0}</span>
                         <span>2h6m</span>
                     </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, tempore vero qui rem voluptatibus voluptas dolor itaque id numquam, consectetur iusto explicabo fuga architecto tempora maiores.</p>
-                    <p className="animate__animated animate__zoomIn animate__delay-2s">
-                        <a href="/"><BiCaretRightCircle />Jouer</a><a href="/"><BsInfoCircle />Voir plus</a>
+                    <p>
+                           {data.length >0 ? data[1].overview : null}
+                    </p>
+                    <p className="animate__animated animate__zoomIn animate__delay-2s mt-2">
+                      { data.length >0 ?<NavLink to={"/pay/movie/" + data[1].id} title="YouTube video player"><BiCaretRightCircle />Jouer</NavLink>:null}
+
+                            {data.length >0 ? <NavLink to={"/" + data[1].id} title={"Voir plus sur " + data[1].title} ><BsInfoCircle />Voir plus</NavLink> : null}
+                        
                     </p>
                 </div>
             </div>
             <div className="carousel-item">
-                <img src={hero3} className="d-block w-100" alt="Acteur-3" />
+                <img src={img3} className="d-block w-100" alt="Acteur-3" />
                 <div className="carousel-caption d-none d-md-block animate__animated animate__fadeIn animate__delay-1s">
                     <h2><span className="badge badge-warning">New</span></h2>
-                    <h5>city dreams</h5>
+                    <h5> {data.length >0 ? data[2].title : null}</h5>
                     <div>
-                        <span>2021</span>
-                        <span>+18</span>
+                        <span>{data.length >0 ? data[2].release_date.slice(0, 4) : null}</span>
+                        <span>{data.length >0 ? data[2].popularity : 0}</span>
                         <span>2h6m</span>
                     </div>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur, earum quos laudantium, non a beatae, atque cumque debitis quae natus est sapiente iure itaque consequuntur!</p>
-                    <p className="animate__animated animate__zoomIn animate__delay-2s">
-                        <a href="/"><BiCaretRightCircle />Jouer</a><a href="/"><BsInfoCircle />Voir plus</a>
+                    <p>
+                       {data.length >0 ? data[2].overview : null}
+                    </p>
+                    <p className="animate__animated animate__zoomIn animate__delay-2s mt-2">
+                      { data.length >0 ?<NavLink to={"/pay/movie/" + data[2].id} title="YouTube video player"><BiCaretRightCircle />Jouer</NavLink>:null}
+
+                            {data.length >0 ? <NavLink to={"/" + data[2].id} title={"Voir plus sur " + data[2].title} ><BsInfoCircle />Voir plus</NavLink> : null}
                     </p>
                 </div>
             </div>

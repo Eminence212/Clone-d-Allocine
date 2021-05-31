@@ -8,16 +8,21 @@ const api_key = "4649c10d4ba3c182bf2c9432f332bb4d"
 const poster_path = "https://image.tmdb.org/t/p/w500/"
 const [numPage, setNumPage] = useState(1)
 const [total_pages, setTotal_pages] = useState(1)
-
+const [genreId, setGenreId] = useState(0)
+const [isWithGenres,setIsWithGenres]=useState(false)
 const [nowPlayingMovies, setNowPlayingMovies] = useState({})
 
     const requete_nowPlayingMovies = `https://api.themoviedb.org/3/movie/now_playing?api_key=${api_key}&language=fr-FR&page=${numPage}`
+
+  const requete_nowPlayingMoviesWith_genres = `https://api.themoviedb.org/3/movie/now_playing?with_genres=${genreId}&api_key=${api_key}&language=fr-FR&page=${numPage}`
    
+    const requette = (isWithGenres && genreId !==0) ? requete_nowPlayingMoviesWith_genres : requete_nowPlayingMovies
+ 
   
-    //Fetching NowPlayin
+  //Fetching NowPlayin
     useEffect(() => {
         try {
-            fetch(requete_nowPlayingMovies)
+            fetch(requette)
                 .then(function (response) {
                     response.json()
                         .then(function (data) {
@@ -28,7 +33,7 @@ const [nowPlayingMovies, setNowPlayingMovies] = useState({})
         } catch (error) {
             console.log("Err :", error);
         }
-    }, [numPage, requete_nowPlayingMovies])
+    }, [numPage, requette])
 
    //Convert date local
     const options = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
@@ -47,6 +52,16 @@ const [nowPlayingMovies, setNowPlayingMovies] = useState({})
             setNumPage(numPage - 1)
         }
     }
+    const handleChangeIdGender = (idGenre) => {
+      setNumPage(1)
+      setIsWithGenres(true)
+      setGenreId(idGenre)
+  }
+    const CancelGenderChange = () => {
+       setNumPage(1)
+      setIsWithGenres(false)
+      setGenreId(0)
+}
     return (
       
         <section section className="films-alaune" >
@@ -56,12 +71,12 @@ const [nowPlayingMovies, setNowPlayingMovies] = useState({})
                     <h2>A la une , <span> {" Du " + getDateLocal(nowPlayingMovies.dates.minimum) + " au " + getDateLocal(nowPlayingMovies.dates.maximum)}</span></h2>
                         {
                            ( genresMovies !== undefined && genresMovies.length >0 )?
-                                <GenresMovies ganres={genresMovies} />
+                                <GenresMovies ganres={genresMovies} handleChangeIdGender = {handleChangeIdGender} CancelGenderChange = {CancelGenderChange} />
                                 :null
                         }
                 </div> : null
             }
-            <diw className="container">
+            <div className="container">
                 {
                     nowPlayingMovies.results !== undefined ? <ButtonNavigation numPage={numPage} nextPage={nextPage} previousPage={previousPage} total_pages={total_pages} /> : null
                 }
@@ -77,7 +92,7 @@ const [nowPlayingMovies, setNowPlayingMovies] = useState({})
                 {
                     nowPlayingMovies.results !== undefined ? <ButtonNavigation numPage={numPage} nextPage={nextPage} previousPage={previousPage} total_pages={total_pages} /> : null
                 }
-            </diw>
+            </div>
             </section>
     )
 }

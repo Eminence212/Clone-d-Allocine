@@ -8,12 +8,15 @@ function SectionFimsPopulaires({ genresMovies}) {
     const [numPage, setNumPage] = useState(1)
     const [total_pages,setTotal_pages] = useState(1)
     const [populrsMovies, setPopularsMovies] = useState({})
+    const [genreId, setGenreId] = useState(0)
+    const [isWithGenres,setIsWithGenres]=useState(false)
     const requete_popularsMovies = `https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&language=fr-FR&page=${numPage}`
-  
+    const requete_popularsMoviesWith_genres = `https://api.themoviedb.org/3/movie/popular?with_genres=${genreId}&api_key=${api_key}&language=fr-FR&page=${numPage}`
+  const requette = (isWithGenres && genreId !==0) ? requete_popularsMoviesWith_genres : requete_popularsMovies
   //Fetching popularsMovies
     useEffect(() => {
         try {
-            fetch(requete_popularsMovies)
+            fetch(requette)
                 .then(function (res) {
                     res.json()
                 .then(function (data) {
@@ -24,7 +27,7 @@ function SectionFimsPopulaires({ genresMovies}) {
         } catch (error) {
             console.log("Err :",error);
         }
-    }, [numPage,requete_popularsMovies]) 
+    }, [numPage,requette]) 
 
     const nextPage = (event) => {
         event.preventDefault()
@@ -39,6 +42,16 @@ function SectionFimsPopulaires({ genresMovies}) {
         }
         console.log("previous page")
     }
+        const handleChangeIdGender = (idGenre) => {
+        setNumPage(1)
+        setIsWithGenres(true)
+        setGenreId(idGenre)
+  }
+    const CancelGenderChange = () => {
+        setNumPage(1)
+        setIsWithGenres(false)
+        setGenreId(0)
+}
     return (
         <section className="films-populaires" >
             {
@@ -46,7 +59,7 @@ function SectionFimsPopulaires({ genresMovies}) {
                     <h2>Films populaires</h2>
                     {
                         (genresMovies !== undefined && genresMovies.length > 0) ?
-                            <GenresMovies ganres={genresMovies} />
+                            <GenresMovies ganres={genresMovies} handleChangeIdGender = {handleChangeIdGender} CancelGenderChange = {CancelGenderChange} />
                             : null
                     }
             </div>: null} 

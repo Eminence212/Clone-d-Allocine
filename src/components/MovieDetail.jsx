@@ -3,6 +3,7 @@ import { BsLink} from 'react-icons/bs'
 import RecommandationMovie from './sections/RecommandationMovie'
 import SimularMovies from './sections/TeteAffiche'
 import TeteAffiche from './sections/TeteAffiche'
+import imgDefault from './images/default/default.png'
 
 function MovieDetail({ match }) {
 
@@ -16,6 +17,7 @@ function MovieDetail({ match }) {
     const requete = `http://api.themoviedb.org/3/movie/${idMovie}?api_key=${api_key}&language=fr-FR`
     const requete_acteur = `https://api.themoviedb.org/3/movie/${idMovie}/credits?api_key=${api_key}&language=fr-FR`
     const requete_RecommandationMovie = `https://api.themoviedb.org/3/movie//${idMovie}/similar?api_key=${api_key}&language=fr-FR&page=1`
+
      function getKeyMovie(requete) {
         try {
             fetch(requete)
@@ -68,6 +70,7 @@ function MovieDetail({ match }) {
         getRecommandationMovie(requete_RecommandationMovie)
     }, [requete, requete_acteur, requete_RecommandationMovie])
    
+    const img = (movieDetail !== undefined) ? (movieDetail.poster_path !==null)? poster_path+movieDetail.poster_path:imgDefault : imgDefault
     return (
         (movieDetail !== undefined )?
         <section className= "detail-movie animate__animated animate__fadeIn animate__delay-0.6s">
@@ -77,7 +80,7 @@ function MovieDetail({ match }) {
                         <div className="container">
                             <div className="row  text-white p-5 justify-content-center">
                             <div className="col-11 col-md-6 col-lg-4">
-                                <img src={poster_path+movieDetail.poster_path} alt={movieDetail.title} className="img-fluid rounded shadow" />
+                                <img src={img} alt={movieDetail.title} className="img-fluid rounded shadow" />
                             </div>
                              <div className="col-11 col-md-6 col-lg-8 justify-content-center">
                                     <h1>{movieDetail.title}</h1>
