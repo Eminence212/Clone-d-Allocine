@@ -5,7 +5,7 @@ function ButtonNavigation({ numPage, nextPage, previousPage, total_pages}) {
         <div className="row bouton-navigation">
             {
 
-                numPage === 1 ? <>{"Page " + numPage + " sur "+total_pages} <span onClick={(e) => nextPage(e)} ><FaAngleDoubleRight/></span></>  : numPage === total_pages ? <>{"Page " + numPage + " sur "+total_pages}<span onClick={(e) => previousPage(e)}><FaAngleDoubleLeft/></span></> : (numPage <= total_pages) ? <><span onClick={(e) => previousPage(e)}><FaAngleDoubleLeft/></span>{"Page " + numPage + " sur "+total_pages}<span onClick={(e) => nextPage(e)}><FaAngleDoubleRight/></span></> : null
+                numPage === 1 ? <>{"Page " + numPage + " sur "+total_pages} <span onClick={(e) => nextPage(e)} ><FaAngleDoubleRight/></span></>  : numPage === total_pages ? <><span onClick={(e) => previousPage(e)}><FaAngleDoubleLeft/></span>{"Page " + numPage + " sur "+total_pages}</> : (numPage <= total_pages) ? <><span onClick={(e) => previousPage(e)}><FaAngleDoubleLeft/></span>{"Page " + numPage + " sur "+total_pages}<span onClick={(e) => nextPage(e)}><FaAngleDoubleRight/></span></> : null
             }
         </div>
     )
