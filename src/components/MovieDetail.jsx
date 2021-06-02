@@ -80,7 +80,7 @@ function MovieDetail({ match }) {
                         <div className="container">
                             <div className="row  text-white p-5 justify-content-center">
                             <div className="col-11 col-md-6 col-lg-4">
-                                <img src={img} alt={movieDetail.title} className="img-fluid rounded shadow" />
+                                <img src={poster_path+movieDetail.poster_path} alt={movieDetail.title} className="img-fluid rounded shadow" />
                             </div>
                              <div className="col-11 col-md-6 col-lg-8 justify-content-center">
                                     <h1>{movieDetail.title}</h1>
