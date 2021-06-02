@@ -11,7 +11,6 @@ function Carousel({ poster_path, data }) {
 const img1 = data.length >0 ? data[0].backdrop_path !==null? poster_path+data[0].backdrop_path:hero1 : hero1
 const img2 = data.length >0 ? data[1].backdrop_path !==null? poster_path+data[1].backdrop_path:hero1 : hero2
 const img3 = data.length >0 ? data[2].backdrop_path !==null? poster_path+data[2].backdrop_path:hero1 : hero3
-console.log(data)
     return (
         <div className="carousel-inner">
             <div className="carousel-item active">

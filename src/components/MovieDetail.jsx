@@ -11,7 +11,7 @@ function MovieDetail({ match }) {
     const [movieDetail, setMovieDetail] = useState({})
     const [movieCredit, setMovieCredit] = useState({})
     const [recommandationMovie, setRecommandationMovie] = useState({})
-    const poster_path = "https://image.tmdb.org/t/p/w500/"
+    const poster_path = "https://image.tmdb.org/t/p/w500"
     const logo_path = "https://image.tmdb.org/t/p/w500"
     const api_key = "4649c10d4ba3c182bf2c9432f332bb4d"
     const requete = `http://api.themoviedb.org/3/movie/${idMovie}?api_key=${api_key}&language=fr-FR`
@@ -70,7 +70,8 @@ function MovieDetail({ match }) {
         getRecommandationMovie(requete_RecommandationMovie)
     }, [requete, requete_acteur, requete_RecommandationMovie])
    
-    const img = (movieDetail !== undefined) ? (movieDetail.poster_path !==null || movieDetail.poster_path!==undefined)? poster_path+movieDetail.poster_path:imgDefault : imgDefault
+    const img = (movieDetail !== undefined) ? (movieDetail.poster_path !== null || movieDetail.poster_path !== undefined) ? poster_path + movieDetail.poster_path : imgDefault : imgDefault
+    console.log("lien image : ",img)
     return (
         (movieDetail !== undefined )?
         <section className= "detail-movie animate__animated animate__fadeIn animate__delay-0.6s">
