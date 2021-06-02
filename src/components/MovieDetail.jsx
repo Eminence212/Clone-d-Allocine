@@ -70,8 +70,9 @@ function MovieDetail({ match }) {
         getRecommandationMovie(requete_RecommandationMovie)
     }, [requete, requete_acteur, requete_RecommandationMovie])
    
-    const img = (movieDetail !== undefined) ? (movieDetail.poster_path !== null || movieDetail.poster_path !== undefined) ? poster_path + movieDetail.poster_path : imgDefault : imgDefault
-    console.log("lien image : ",img)
+    const img =(movieDetail.poster_path !== null && movieDetail.poster_path !== undefined) ? poster_path + movieDetail.poster_path : imgDefault 
+   console.log("movieDetail.poster_path:",movieDetail.poster_path)
+    console.log("lien image : ", img)
     return (
         (movieDetail !== undefined )?
         <section className= "detail-movie animate__animated animate__fadeIn animate__delay-0.6s">
