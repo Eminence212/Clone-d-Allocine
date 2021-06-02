@@ -33,8 +33,8 @@ const App = () => {
     <Switch>
       <Route exact path="/" render={(props) => <Main {...props} genresMovies={genresMovies} />} />
       <Route exact path="/movies-search" render={(props) => <MoviesSearch {...props} genresMovies={genresMovies} />} />
-      <Route exact path="/:query?" render={(props) => <MovieDetail {...props} />} />
-      <Route exact path="/pay/movie/:query?" render={(props) => <VideoMovie {...props} />} />
+      <Route exact path="/detail/movie/:query?" render={(props) => <MovieDetail {...props} />} />
+      <Route exact path="/play/movie/:query?" render={(props) => <VideoMovie {...props} />} />
     </Switch>
     <Footer />
     <BackToTop />
