@@ -40,7 +40,7 @@ const img3 = data.length >0 ? data[2].backdrop_path !==null? poster_path+data[2]
                </div>
             </div>
            
-            <div className="carousel-item">
+            {/* <div className="carousel-item">
                 <img src={img2} className="d-block w-100" alt="Acteur-2" />
                 <div className="carousel-caption d-none d-md-block animate__animated animate__fadeIn animate__delay-1s">
                     <h2><span className="badge badge-warning">New</span></h2>
@@ -81,6 +81,7 @@ const img3 = data.length >0 ? data[2].backdrop_path !==null? poster_path+data[2]
                     </p>
                 </div>
             </div>
+        */}
         </div>
     )
 }
