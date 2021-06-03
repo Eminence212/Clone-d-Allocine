@@ -201,13 +201,13 @@ function MovieDetail({ match }) {
                             </div>
 
                             {
-                                (movieCredit.crew !== undefined ) ?
+                                (movieCredit.crew !== undefined && movieCredit.crew.length >0 ) ?
                            
                                     <TeteAffiche resultats={ movieCredit.crew} styles ="bg-white tete-affiche" titre = "Têtes d'affiche" />
                                     : null
                             }
                             {
-                                (recommandationMovie.results !== undefined) ?
+                                (recommandationMovie.results !== undefined && recommandationMovie.results.length > 0) ?
                                     <RecommandationMovie resultats={recommandationMovie.results} styles ="film-simulaire" titre = "Films Recommandés" />
                                     : null
                             }

@@ -430,8 +430,8 @@ section .bouton-navigation span:hover {
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 .carousel-caption p {
-  height: 50px;
-  width: 30%;
+  height: 100px;
+  width: 35%;
   color: white;
 }
 .carousel-caption div {
@@ -454,7 +454,7 @@ section .bouton-navigation span:hover {
 .carousel-caption div,
 .carousel-caption p {
   display: flex;
-  margin-bottom: 15px;
+  margin: 15px 0;
   font-style: 18px;
   line-height: 1;
   text-align: justify;
@@ -465,7 +465,7 @@ section .bouton-navigation span:hover {
   height: 2.5rem;
   width: 120px;
   background: red;
-  margin: 50px 15px 15px 0px;
+  margin: 15px 15px 15px 0px;
   padding-right: 15x;
   display: flex;
   align-items: center;
@@ -491,6 +491,12 @@ section .bouton-navigation span:hover {
 .carousel-caption p a svg {
   font-size: 1.8rem;
   font-weight: bold;
+}
+.carousel-caption .overview {
+  overflow-y: auto;
+}
+.carousel-caption .overview::-webkit-scrollbar {
+  width: 12px;
 }
 
 .films-populaires {

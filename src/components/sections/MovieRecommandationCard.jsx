@@ -16,9 +16,9 @@ function MovieRecommandationCard({ data, poster_path, genresMovies }) {
                 </div>
                 <div className="film-info">
 
-                    <div><NavLink to={"/pay/movie/" + data.id} title="YouTube video player"><MdPlayArrow /></NavLink></div>
+                    <div><NavLink to={"/play/movie/" + data.id} title="YouTube video player"><MdPlayArrow /></NavLink></div>
                     <div><a href="/"><MdAdd /></a></div>
-                    <div><NavLink to={"/" + data.id} title={"Voir plus sur " + data.title} ><BsInfo /></NavLink></div>
+                    <div><NavLink to={"/detail/movie/" + data.id} title={"Voir plus sur " + data.title} ><BsInfo /></NavLink></div>
 
                 </div>
             </div>

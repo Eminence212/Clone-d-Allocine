@@ -26,15 +26,15 @@ const img3 = data.length >0 ? data[2].backdrop_path !==null? poster_path+data[2]
                             <span>{data.length >0 ? data[0].popularity : 0}</span>
                             <span>2h6m</span>
                         </div>
-                        <p>
+                        <p  className="overview">
                          
                               {data.length >0 ? data[0].overview : null}
                         </p>
                         <p className="animate__animated animate__zoomIn animate__delay-2s mt-2">
                            
-                          { data.length >0 ?<NavLink to={"/pay/movie/" + data[0].id} title="YouTube video player"><BiCaretRightCircle />Jouer</NavLink>:null}
+                          { data.length >0 ?<NavLink to={"/play/movie/" + data[0].id} title="YouTube video player"><BiCaretRightCircle />Jouer</NavLink>:null}
 
-                            {data.length >0 ? <NavLink to={"/" + data[0].id} title={"Voir plus sur " + data[0].title} ><BsInfoCircle />Voir plus</NavLink> : null}
+                            {data.length >0 ? <NavLink to={"/detail/movie/" + data[0].id} title={"Voir plus sur " + data[0].title} ><BsInfoCircle />Voir plus</NavLink> : null}
                         </p>
                     </div>
                </div>
@@ -50,13 +50,13 @@ const img3 = data.length >0 ? data[2].backdrop_path !==null? poster_path+data[2]
                         <span>{data.length >0 ? data[1].popularity : 0}</span>
                         <span>2h6m</span>
                     </div>
-                    <p>
+                    <p  className="overview">
                            {data.length >0 ? data[1].overview : null}
                     </p>
                     <p className="animate__animated animate__zoomIn animate__delay-2s mt-2">
-                      { data.length >0 ?<NavLink to={"/pay/movie/" + data[1].id} title="YouTube video player"><BiCaretRightCircle />Jouer</NavLink>:null}
+                      { data.length >0 ?<NavLink to={"/play/movie/" + data[1].id} title="YouTube video player"><BiCaretRightCircle />Jouer</NavLink>:null}
 
-                            {data.length >0 ? <NavLink to={"/" + data[1].id} title={"Voir plus sur " + data[1].title} ><BsInfoCircle />Voir plus</NavLink> : null}
+                            {data.length >0 ? <NavLink to={"/detail/movie/" + data[1].id} title={"Voir plus sur " + data[1].title} ><BsInfoCircle />Voir plus</NavLink> : null}
                         
                     </p>
                 </div>
@@ -71,13 +71,13 @@ const img3 = data.length >0 ? data[2].backdrop_path !==null? poster_path+data[2]
                         <span>{data.length >0 ? data[2].popularity : 0}</span>
                         <span>2h6m</span>
                     </div>
-                    <p>
+                    <p className="overview">
                        {data.length >0 ? data[2].overview : null}
                     </p>
                     <p className="animate__animated animate__zoomIn animate__delay-2s mt-2">
-                      { data.length >0 ?<NavLink to={"/pay/movie/" + data[2].id} title="YouTube video player"><BiCaretRightCircle />Jouer</NavLink>:null}
+                      { data.length >0 ?<NavLink to={"/play/movie/" + data[2].id} title="YouTube video player"><BiCaretRightCircle />Jouer</NavLink>:null}
 
-                            {data.length >0 ? <NavLink to={"/" + data[2].id} title={"Voir plus sur " + data[2].title} ><BsInfoCircle />Voir plus</NavLink> : null}
+                            {data.length >0 ? <NavLink to={"/detail/movie/" + data[2].id} title={"Voir plus sur " + data[2].title} ><BsInfoCircle />Voir plus</NavLink> : null}
                     </p>
                 </div>
             </div>
